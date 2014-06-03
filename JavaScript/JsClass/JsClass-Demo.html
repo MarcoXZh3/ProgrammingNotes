@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> JsClass Demo </title>
+  <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+  <script id= "testcode">
+    function consoleOutput() {
+      var source = document.getElementById('source');
+      var innerHTML = document.getElementById('jsclass').innerHTML;
+      source.innerHTML = innerHTML.trim().replace(/\n    /g, '\n');
+
+      var c1 = new JsClass('public', 'private');
+      var str = 'var c1 = new JsClass(\'public\', \'private\');\n';
+      str += 'Public variable:\tc1.publicStr:\t\t' + c1.publicStr + '\n';
+      str += 'Private variable:\tc1.privateStr:\t\t' + c1.privateStr + '\n';
+      str += 'Public method:\t\tc1.getPrivateStr():\t' + c1.getPrivateStr() + '\n';
+      try {
+        c1.upperCaseOf();
+      } catch (err) {
+        str += 'Private method:\t\tc1.upperCaseOf():\t' + err.message + '\n';
+      } // try - catch (err)
+      str += 'Static method:\t\tc1.staticMethod()\n';
+      c1.staticMethod();
+      var c2 = new JsClass();
+      str += 'var c2 = new JsClass();\n';
+      str += 'Static method:\t\tc2.staticMethod()\n';
+      c2.staticMethod();
+      str += 'Static variable:\tc1.staticNo:\t\t' + c1.staticNo + '\n';
+      str += 'Static variable:\tc2.staticNo:\t\t' + c2.staticNo + '\n';
+      str += 'Static method:\t\tJsClass.prototype.staticMethod()\n';
+      JsClass.prototype.staticMethod();
+      str += 'Static variable:\tJsClass.staticNo:\t' + JsClass.prototype.staticNo + '\n';
+
+      var c3 = new JsChildClass('pubStr', 'priStr');
+      str += '\nvar c3 = new JsChildClass(\'pubStr\', \'priStr\');\n';
+      str += 'Public parent variable:\tc3.publicStr:\t\t' + c3.publicStr + '\n';
+      str += 'Private parent variable:c3.privateStr:\t\t' + c3.privateStr + '\n';
+      str += 'Public parent method:\tc3.getPrivateStr():\t' + c3.getPrivateStr() + '\n';
+      try {
+        c3.upperCaseOf();
+      } catch (err) {
+        str += 'Private parent method:\tc3.upperCaseOf():\t' + err.message + '\n';
+      } // try - catch (err)
+      str += 'Static parent method:\tc3.staticMethod()\n';
+      c3.staticMethod();
+      var c4 = new JsChildClass();
+      str += 'var c4 = new JsChildClass();\n';
+      str += 'Static parent method:\tc4.staticMethod()\n';
+      c4.staticMethod();
+      str += 'Static parent variable:\tc3.staticNo:\t\t' + c3.staticNo + '\n';
+      str += 'Static parent variable:\tc4.staticNo:\t\t' + c4.staticNo + '\n';
+      str += 'Static parent method:\tJsChildClass.prototype.staticMethod()\n';
+      JsChildClass.prototype.staticMethod();
+      str += 'Static parent variable:\tJsChildClass.staticNo:\t' +
+             JsChildClass.prototype.staticNo + '\n';
+
+      var output = document.getElementById('output');
+      output.innerHTML = str;
+    } // function consoleOutput()
+  </script>
+  <script>
+    function showTestCode() {
+      var test = document.getElementById('test');
+      var innerHTML = document.getElementById('testcode').innerHTML;
+      test.innerHTML = innerHTML.trim().replace(/\n    /g, '\n');
+    } // function showTestCode()
+  </script>
+</head>
+<body onload="consoleOutput(); showTestCode();">
+  <div style="margin:8px; float:left; width:43%;">
+    <p style="font-weight:bold;">Source Code</p>
+    <pre id="source" style="border:1px solid; padding:8px;"></pre>
+  </div>
+  <div style="margin:8px; float:right; width:53%;">
+    <p style="font-weight:bold;">Console Output</p>
+    <pre id="output" style="border:1px solid; padding:8px;"></pre>
+  </div>
+  <div style="margin:8px; float:right; width:53%;">
+    <p style="font-weight:bold;">Test Code</p>
+    <pre id="test" style="border:1px solid; padding:8px;"></pre>
+  </div>
+  <script id="jsclass">
+    /**
+     * Javascript class definition and constructor with parameter.
+     * @author  Marco
+     * @version  1.0
+     */
+    function JsClass(pubStr, priStr) {
+      /**
+       * Private variable: use "var" to define.
+       */
+      var privateStr = (!priStr) ? 'PRIVATE' : priStr;
+
+      /**
+       * Public variable: Use "this" to define.
+       */
+      this.publicStr = (!pubStr) ? 'PUBLIC' : pubStr;
+      /**
+       * Private method: use "var" to define -- Same as private variable.
+       */
+
+      var upperCaseOf = function(str) {
+        return str.toUpperCase();
+      }; // var upperCaseOf = function(str)
+
+      /**
+       * Public method: Use "this" to define -- Same as public variable.
+       */
+      this.getPrivateStr = function() {
+        return upperCaseOf(privateStr);
+      }; // this.getPrivateStr = function()
+    } // function JsClass(pubStr, priStr)
+
+    /**
+     * Static variable is a property. DO place it outside of the class
+     * definition. If not, every time a new instance is created, it will
+     * be re-initialized.
+     */
+    JsClass.prototype.staticNo = 0;
+
+    /**
+     * Static method is a property function -- Same as static variable.
+     * Placing outside of class definition is not mandatory.
+     */
+    JsClass.prototype.staticMethod = function() {
+      JsClass.prototype.staticNo ++;
+    }; // JsClass.prototype.staticMethod = function()
+
+
+    /**
+     * Inherit public and private members from parent
+     */
+    function JsChildClass(pubName, priName, pubStr, priStr) {
+      //JsClass.call(this, the_only_parameter);
+      JsClass.apply(this, new Array(pubStr, priStr));
+    } // function JsChildClass(pubName, priName, pubStr, priStr)
+
+    /**
+     * Inherit static members from parent
+     */
+    JsChildClass.prototype = new JsClass();
+  </script>
+</body>
+</html>
