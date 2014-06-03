@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<!DOCTYPE dialog SYSTEM "chrome://HelloWorld/locale/overlay.dtd">
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        title="&name;" buttons=",">
+
+    <vbox flex="1">
+        <spacer flex="1" />
+        <hbox>
+            <spacer flex="1" />
+            <html:pre id="html_pre" style="border:1px solid; width:300px; padding:8px;" />
+            <spacer flex="1" />
+            <description id="xul_desc" style="border:1px solid; width:150px; margin:10px; padding:10px;" />
+            <spacer flex="2" />
+            <button style="margin: 8px;" label="&button.label;" oncommand="close();" />
+            <spacer flex="1" />
+        </hbox>
+        <spacer flex="2" />
+    </vbox>
+
+    <script src="HelloWorld.js" />
+
+</dialog>

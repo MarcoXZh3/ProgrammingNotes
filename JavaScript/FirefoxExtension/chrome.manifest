@@ -1,0 +1,6 @@
+content    HelloWorld                              content/
+
+overlay    chrome://browser/content/browser.xul    chrome://HelloWorld/content/overlay.xul
+
+locale     HelloWorld               en-US          locale/en-US/
+locale     HelloWorld               zh-CN          locale/zh-CN/

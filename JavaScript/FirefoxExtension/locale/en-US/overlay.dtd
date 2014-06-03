@@ -1,0 +1,18 @@
+<!-- I am a comment -->
+<!ENTITY icon.path              "chrome://HelloWorld/content/icons/HW_en-US.png">
+<!ENTITY name                   "HelloWorld">
+<!ENTITY message                "Hello, World!">
+<!ENTITY tooltip                "Call Function to Run Test">
+<!ENTITY HW-FileMenu-Item       "Menu item in \'File\' menu">
+<!ENTITY HW-EditMenu-Item       "Menu item in \'Edit\' menu">
+<!ENTITY HW-ViewMenu-Item       "Menu item in \'View\' menu">
+<!ENTITY HW-HistoryMenu-Item    "Menu item in \'History\' menu">
+<!ENTITY HW-BookmarksMenu-Item  "Menu item in \'Bookmarks\' menu">
+<!ENTITY HW-ToolsMenu-Item      "Menu item in \'Tools\' menu">
+<!ENTITY HW-HelpMenu-Item       "Menu item in \'Help\' menu">
+<!ENTITY HW-ContextMenu-Item    "Menu item in context menu">
+<!ENTITY HW-TB-MenuButton       "Split tool-bar menu button">
+<!ENTITY HW-TB-MBItem1          "Split tool-bar menu item 1">
+<!ENTITY HW-TB-MBItem2          "Split tool-bar menu item 2">
+<!ENTITY HW-StatusBar-Button    "Status bar button">
+<!ENTITY button.label           "Close">

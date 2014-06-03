@@ -1,0 +1,18 @@
+<!-- I am a comment -->
+<!ENTITY icon.path              "chrome://HelloWorld/content/icons/HW_zh-CN.png">
+<!ENTITY name                   "你好世界">
+<!ENTITY message                "你好，世界！">
+<!ENTITY tooltip                "调用函数进行测试">
+<!ENTITY HW-FileMenu-Item       "\'文件\'菜单加载项">
+<!ENTITY HW-EditMenu-Item       "\'编辑\'菜单加载项">
+<!ENTITY HW-ViewMenu-Item       "\'查看\'菜单加载项">
+<!ENTITY HW-HistoryMenu-Item    "\'历史\'菜单加载项">
+<!ENTITY HW-BookmarksMenu-Item  "\'书签\'菜单加载项">
+<!ENTITY HW-ToolsMenu-Item      "\'工具\'菜单加载项">
+<!ENTITY HW-HelpMenu-Item       "\'帮助\'菜单加载项">
+<!ENTITY HW-ContextMenu-Item    "上下文菜单加载项">
+<!ENTITY HW-TB-MenuButton       "工具栏分割菜单按钮">
+<!ENTITY HW-TB-MBItem1          "工具栏分割菜单项  1">
+<!ENTITY HW-TB-MBItem2          "工具栏分割菜单项  2">
+<!ENTITY HW-StatusBar-Button    "状态栏按钮">
+<!ENTITY button.label           "关闭">

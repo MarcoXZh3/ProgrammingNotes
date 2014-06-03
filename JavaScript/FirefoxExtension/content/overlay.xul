@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://HelloWorld/locale/overlay.dtd">
+
+<overlay id="HW-Overlay" 
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script src="overlay.js" />
+
+    <!-- "File" Menu Item -->
+    <menupopup id="menu_FilePopup">
+        <menuseparator />
+        <menuitem id="HW-FileMenu-Item" label="&message;" accesskey="h"
+                  oncommand="HWOverlay.sayHelloWorld('&HW-FileMenu-Item;');"
+                  class="menuitem-iconic" image="&icon.path;" />
+    </menupopup>
+
+    <!-- "Edit" Menu Item -->
+    <menupopup id="menu_EditPopup">
+        <menuseparator />
+        <menuitem id="HW-EditMenu-Item" label="&message;" accesskey="h"
+                  oncommand="HWOverlay.sayHelloWorld('&HW-EditMenu-Item;');"
+                  class="menuitem-iconic" image="&icon.path;" />
+    </menupopup>
+
+    <!-- "View" Menu Item -->
+    <menupopup id="menu_viewPopup">
+        <menuseparator />
+        <menuitem id="HW-ViewMenu-Item" label="&message;" accesskey="h"
+                  oncommand="HWOverlay.sayHelloWorld('&HW-ViewMenu-Item;');"
+                  class="menuitem-iconic" image="&icon.path;" />
+    </menupopup>
+
+    <!-- "History" Menu Item -->
+    <menupopup id="goPopup">
+        <menuitem id="HW-HistoryMenu-Item" label="&message;" accesskey="h"
+                  oncommand="HWOverlay.sayHelloWorld('&HW-HistoryMenu-Item;');"
+                  class="menuitem-iconic" image="&icon.path;" />
+        <menuseparator />
+    </menupopup>
+
+    <!-- "Bookmarks" Menu Item -->
+    <menupopup id="bookmarksMenuPopup">
+        <menuseparator />
+        <menuitem id="HW-BookmarksMenu-Item" label="&message;" accesskey="h"
+                  oncommand="HWOverlay.sayHelloWorld('&HW-BookmarksMenu-Item;');"
+                  class="menuitem-iconic" image="&icon.path;" />
+    </menupopup>
+
+    <!-- "Tools" Menu Item -->
+    <menupopup id="menu_ToolsPopup">
+        <menuitem id="HW-ToolsMenu-Item" label="&message;" accesskey="h"
+                  oncommand="HWOverlay.sayHelloWorld('&HW-ToolsMenu-Item;');"
+                  insertafter="menu_preferences" class="menuitem-iconic" image="&icon.path;" />
+        <menuseparator insertbefore="HW-ToolsMenu-Item" />
+    </menupopup>
+
+    <!-- "Help" Menu Item -->
+    <menupopup id="menu_HelpPopup">
+        <menuseparator />
+        <menuitem id="HW-HelpMenu-Item" label="&message;" accesskey="h"
+                  oncommand="HWOverlay.sayHelloWorld('&HW-HelpMenu-Item;');"
+                  class="menuitem-iconic" image="&icon.path;" />
+    </menupopup>
+
+    <!-- Context Menu Item -->
+    <popup id="contentAreaContextMenu">
+        <menuseparator />
+        <menuitem id="HW-ContextMenu-Item" label="&message;" accesskey="h"
+                  oncommand="HWOverlay.sayHelloWorld('&HW-ContextMenu-Item;');"
+                  class="menuitem-iconic" src="&icon.path;" />
+    </popup>
+
+    <!-- Customized Tool Bar Items -->
+    <toolbar id="nav-bar">
+        <toolbaritem id="HW-TB-Item" class="toolbarbutton-1" title="&name;">
+            <toolbarseparator />
+            <toolbarbutton id="HW-TB-MenuButton" label="&message;" tooltiptext="&tooltip;"
+                           oncommand="alert('&HW-TB-MenuButton;');"
+                           type="menu-button" class="toolbarbutton-1 chromeclass" image="&icon.path;">
+                <menupopup>
+                    <menuitem id="HW-TB-MBItem1" label="&message;" tooltiptext="&tooltip;" accesskey="h"
+                              oncommand="alert('&HW-TB-MBItem1;');"
+                              class="menuitem-iconic" src="&icon.path;" />
+                    <menuitem id="HW-TB-MBItem2" label="&message;" tooltiptext="&tooltip;" accesskey="e"
+                              oncommand="alert('&HW-TB-MBItem2;');"
+                              class="menuitem-iconic" src="&icon.path;" />
+                </menupopup>
+            </toolbarbutton>
+        </toolbaritem>
+    </toolbar>
+
+</overlay>
