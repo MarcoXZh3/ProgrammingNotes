@@ -9,21 +9,37 @@ Table of Contents
 
   - **Java**
 
-    - Structured programming sample -- [```MyJavaExample.java```] [1]
+    - Structured programming sample -- [```MyJavaExample.java```] [java01]
 
-    - Secure hash of files or strings -- [```SecureHash.java```] [2]
+    - Secure hash of files or strings -- [```SecureHash.java```] [java02]
 
-    - Customize event -- [```CustomizedEvent```] [3]
+    - Customize event -- [```CustomizedEvent```] [java03]
 
-    - Executable jar -- [```ExecutableJar```] [4] Readme document found [here] [5]
+    - Executable jar -- [```ExecutableJar```] [java04] Readme document [here] [java04readme]
 
-    - Jar class loader -- [```JarClassLoader```] [6]
+    - Jar class loader -- [```JarClassLoader```] [java05]
 
-    - Invoke system command -- [```RunCmd.java```] [7] Readme document found [here] [8]
+    - Invoke system command -- [```RunCmd.java```] [java06] Readme document [here] [java06readme]
 
-    - Testing with JUnit -- [```JUnitTests```] [9] Readme document found [here] [10]
+    - Testing with JUnit -- [```JUnitTests```] [java07] Readme document [here] [java07readme]
 
   - **JavaScript**
+
+    - HTML escape symbols -- [```HtmlEscapeSymbols.html ```] [js01]
+
+    - Append jQuery -- [```include_jQuery.js ```] [js02]
+
+    - Get CSS value -- [```GetCssValue ```] [js03]
+
+    - DOM element visibility -- [```DomVisibility.js```] [js04]
+
+    - Object oriented programming -- [```JsClass```] [js05] Readme document [here] [js05readme]
+
+    - Color implementation -- [```JsColor```] [js06]
+
+    - Tree implementation -- [```JsTree```] [js07]
+
+    - Filefox extension development -- [```FilefoxExtension```] [js08] Readme document [here] [js08readme]
 
   - **Python**
 
@@ -40,13 +56,24 @@ Lincence
 MIT
 
 
-[1]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/MyJavaSample.java
-[2]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/SecureHash.java
-[3]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/CustomizedEvent
-[4]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/ExecutableJar
-[5]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Creating-an-executable-jar-file
-[6]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/JarClassLoader
-[7]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/RunCmd.java
-[8]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Invoke-system-command
-[9]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/JUnitTestFramework
-[10]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Testing-with-JUnit
+
+[java01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/MyJavaSample.java
+[java02]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/SecureHash.java
+[java03]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/CustomizedEvent
+[java04]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/ExecutableJar
+[java04readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Creating-an-executable-jar-file
+[java05]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/JarClassLoader
+[java06]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/RunCmd.java
+[java06readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Invoke-system-command
+[java07]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/JUnitTestFramework
+[java07readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Testing-with-JUnit
+[js01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/HtmlEscapeSymbols.html
+[js02]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/include_jQuery.js
+[js03]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/GetCssValue
+[js04]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/DomVisibility.js
+[js05]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsClass
+[js05readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Object-oriented-programming
+[js06]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsColor
+[js07]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsTree
+[js08]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension
+[js08readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Filefox-extension-development
