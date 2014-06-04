@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> JsClass Demo </title>
+  <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+  <script id= "testcode">
+  function consoleOutput() {
+    var str = '';
+    var root = new TreeNode('root node');
+    str += 'var root = new TreeNode(\'root\');\n';
+    var tree = new Tree(root, 'The First Tree');
+    str += 'var tree = new Tree(root, \'Tree\');\n';
+    str += tree.toString() + '\n';
+    var c11 = new TreeNode('c11');
+    str += 'var c11 = new TreeNode(\'c11\');\n';
+    str += 'root.appendChild(c11);\t\t\t\t' + root.appendChild(c11) + '\n';
+    var c13 = new TreeNode('c13');
+    str += 'var c13 = new TreeNode(\'c13\');\n';
+    str += 'root.appendChild(c13);\t\t\t\t' + root.appendChild(c13) + '\n';
+    str += tree.toString() + '\n';
+    var c12 = new TreeNode('c12');
+    str += 'var c12 = new TreeNode(\'c12\');\n';
+    str += 'root.insertBefore(c12, new TreeNode(\'null\'));\t' + root.insertBefore(c12, new TreeNode('null')) + '\n';
+    str += tree.toString() + '\n';
+    str += 'root.insertBefore(c12, c13);\t\t\t' + root.insertBefore(c12, c13) + '\n';
+    str += tree.toString() + '\n';
+    var c21 = new TreeNode('c21');
+    var c22 = new TreeNode('c22');
+    var c23 = new TreeNode('c23');
+    var c24 = new TreeNode('c24');
+    var c25 = new TreeNode('c25');
+    var c26 = new TreeNode('c26');
+    str += 'var c21 = new TreeNode(\'c21\');\n';
+    str += 'var c22 = new TreeNode(\'c22\');\n';
+    str += 'var c23 = new TreeNode(\'c23\');\n';
+    str += 'var c24 = new TreeNode(\'c24\');\n';
+    str += 'var c25 = new TreeNode(\'c25\');\n';
+    str += 'var c26 = new TreeNode(\'c26\');\n';
+    str += 'c11.appendChild(c21);\t\t\t\t' + c11.appendChild(c21) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c11.appendChild(c22);\t\t\t\t' + c11.appendChild(c22) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c11.removeChild(new TreeNode(\'null\'));\t' + c11.removeChild(new TreeNode('null')) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c11.removeChild(c21);\t\t\t\t' + c11.removeChild(c21) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c12.appendChild(c23);\t\t\t\t' + c12.appendChild(c23) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c12.appendChild(c23);\t\t\t\t' + c12.appendChild(c23) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c12.appendChild(c25);\t\t\t\t' + c12.appendChild(c25) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c12.replaceChild(c24, new TreeNode(\'null\'));\t' + c12.replaceChild(c24, new TreeNode('null')) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c12.replaceChild(c24, c25);\t\t\t' + c12.replaceChild(c24, c25) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c13.appendChild(c25);\t\t\t\t' + c13.appendChild(c25) + '\n';
+    str += tree.toString() + '\n';
+    str += 'c13.appendChild(c26);\t\t\t\t' + c13.appendChild(c26) + '\n';
+    str += tree.toString() + '\n';
+    str += 'root.removeChild(c12);\t\t\t\t' +  root.removeChild(c12) + '\n';
+    str += tree.toString() + '\n';
+    str += 'root.removeChild(c13);\t\t\t\t' +  root.removeChild(c13) + '\n';
+    str += tree.toString() + '\n';
+    document.getElementById('output').innerHTML = str;
+  } // function consoleOutput()
+  </script>
+  <script>
+    function showCodes() {
+      var node = document.getElementById('source-jstree');
+      var innerHTML = document.getElementById('jstree').innerHTML;
+      node.innerHTML = innerHTML.trim().replace(/\n  /g, '\n');
+
+      node = document.getElementById('source-jstreenode');
+      innerHTML = document.getElementById('jstreenode').innerHTML;
+      node.innerHTML = innerHTML.trim().replace(/\n  /g, '\n');
+
+      node = document.getElementById('test');
+      innerHTML = document.getElementById('testcode').innerHTML;
+      node.innerHTML = innerHTML.trim().replace(/\n  /g, '\n');
+    } // function showCodes()
+  </script>
+</head>
+<body onload="consoleOutput(); showCodes();">
+  <div style="margin:8px; float:left; width:43%;">
+    <p style="font-weight:bold;">Source Code - TreeNode</p>
+    <pre id="source-jstreenode" style="border:1px solid; padding:8px; overflow:scroll; height:500px;"></pre>
+  </div>
+  <div style="margin:8px; float:left; width:43%; top:600px; position:absolute;">
+    <p style="font-weight:bold;">Source Code - Tree</p>
+    <pre id="source-jstree" style="border:1px solid; padding:8px; overflow:scroll; height:500px;"></pre>
+  </div>
+  <div style="margin:8px; float:right; width:53%;">
+    <p style="font-weight:bold;">Console Output</p>
+    <pre id="output" style="border:1px solid; padding:8px; overflow:scroll; height:500px;"></pre>
+  </div>
+  <div style="margin:8px; float:right; width:53%; top:600px;">
+    <p style="font-weight:bold;">Test Code</p>
+    <pre id="test" style="border:1px solid; padding:8px; overflow:scroll; height:500px;"></pre>
+  </div>
+  <script id="jstreenode">
+  /**
+   * JavaScript Class - Tree Node
+   * @author  Marco
+   * @version 1.0
+   */
+  function TreeNode(name) {
+    /**
+     * Name of the tree node (if not specified then set to empty string)
+     */
+    this.name = (!name) ? '' : name;
+    /**
+     * Parent node of the tree node
+     */
+    this.parentNode = null;
+    /**
+     * Child node list of the tree node
+     */
+    this.childNodes = new Array();
+    /**
+     * First child node of the tree node
+     */
+    this.firstChild = null;
+    /**
+     * Last child node of the tree node
+     */
+    this.lastChild = null;
+    /**
+     * Next sibling node of the tree node
+     */
+    this.nextSibling = null;
+    /**
+     * Previous sibling node of the tree node
+     */
+    this.previousSibling = null;
+  } // function TreeNode(name)
+
+  /**
+   * Get the name of the tree node
+   * @returns {String}    Name of the tree node
+   */
+  TreeNode.prototype.getName = function() {
+    return this.name;
+  }; // TreeNode.prototype.getName = function()
+
+  /**
+   * Set the name of the tree node
+   * @param name  The name to be set
+   */
+  TreeNode.prototype.setName = function(name) {
+    this.name = name;
+  }; // TreeNode.prototype.setName = function(name)
+
+  /**
+   * Get parent node
+   * @returns {Object}    The parent node
+   */
+  TreeNode.prototype.getParentNode = function() {
+    return this.parentNode;
+  }; // TreeNode.prototype.getParentNode = function()
+
+  /**
+   * Set parent node
+   * @param parentNode    Parent node to the tree node
+   */
+  TreeNode.prototype.setParentNode = function(parentNode) {
+    this.parentNode = parentNode;
+  }; // TreeNode.prototype.setParentNode = function(parentNode)
+
+  /**
+   * Get a child node
+   * @param index         Index of the child node to find
+   * @returns {Object}    The child node or null
+   */
+  TreeNode.prototype.getChildNode = function(index) {
+    if (index >= this.childNodes.length)
+      return null;
+    return this.childNodes[index];
+  }; // TreeNode.prototype.getChildNode = function(index)
+
+  /**
+   * Set a child node
+   * @param index         Index of the child node to set
+   * @param newChildNode  New child node for setting
+   * @returns {Boolean}   Whether successfully set
+   */
+  TreeNode.prototype.setChildNode = function(index, newChildNode) {
+    if (index >= this.childNodes.length)
+      return false;
+    this.childeNodes[index] = newChildNode;
+    return true;
+  }; // TreeNode.prototype.setChildNode = function(index, newChildNode)
+
+  /**
+   * Get the first child node
+   * @returns {Object}    The first child node
+   */
+  TreeNode.prototype.getFirstChild = function() {
+    return this.firstChild;
+  }; // TreeNode.prototype.getFirstChild = function()
+
+  /**
+   * Get the last child node
+   * @returns {Object}    The last child node
+   */
+  TreeNode.prototype.getLastChild = function() {
+    return this.lastChild;
+  }; // TreeNode.prototype.getLastChild = function()
+
+  /**
+   * Get the next sibling node
+   * @returns {Object}    The next sibling node
+   */
+  TreeNode.prototype.getNextSibling = function() {
+    return this.nextSibling;
+  }; // TreeNode.prototype.getNextSibling = function()
+
+  /**
+   * Set the next sibling node
+   * @param nextSibling   The new next sibling node
+   */
+  TreeNode.prototype.setNextSibling = function(nextSibling) {
+    this.nextSibling = nextSibling;
+  }; // TreeNode.prototype.setNextSibling = function(nextSibling)
+
+  /**
+   * Get the previous sibling node
+   * @returns {Object}    The previous sibling node
+   */
+  TreeNode.prototype.getPreviousSibling = function() {
+    return this.previousSibling;
+  }; // TreeNode.prototype.getPreviousSibling = function()
+
+  /**
+   * Set the previously sibling node
+   * @param previousSibling   The previously sibling node
+   */
+  TreeNode.prototype.setPreviousSibling = function(previousSibling) {
+    this.previousSibling = previousSibling;
+  }; // TreeNode.prototype.setPreviousSibling = function(previousSibling)
+
+  /**
+   * Append a new child node
+   * @param childNode     The new child node
+   * @returns {Boolean}   Whether successfully appended
+   */
+  TreeNode.prototype.appendChild = function(childNode) {
+    if (!childNode)
+      return false;
+    var index;
+    for (index = 0; index < this.childNodes.length; index++) {
+      if (this.childNodes[index] == childNode)
+        return false;
+    } // for (index = 0; index < this.childNodes.length; index++)
+    this.childNodes.push(childNode);
+    this.firstChild = this.childNodes[0];
+    lastChild = childNode;
+    childNode.setParentNode(this);
+    if (this.childNodes.length > 1) {
+      this.childNodes[this.childNodes.length - 2].setNextSibling(childNode);
+      childNode.setPreviousSibling(this.childNodes[this.childNodes.length - 2]);
+    } else {
+      childNode.setPreviousSibling(null);
+    } // else - if (this.childNodes.length > 1)
+    childNode.setNextSibling(null);
+    return true;
+  }; // TreeNode.prototype.appendChild = function(childNode)
+
+  /**
+   * Remove a child node
+   * @param childNode     The child node to be removed
+   * @returns {Boolean}   Whether successfully removed
+   */
+  TreeNode.prototype.removeChild = function(childNode) {
+    if (!childNode)
+      return false;
+    var index;
+    for (index = 0; index < this.childNodes.length; index++) {
+      if (this.childNodes[index] == childNode)
+        break ;
+    } // for (index = 0; index < this.childNodes.length; index++)
+    if (index >= this.childNodes.length)
+      return false;
+    else {
+      var node = this.childNodes[index];
+      node.setParentNode(null);
+      node.setPreviousSibling(null);
+      node.setNextSibling(null);
+      if (index > 0)
+          this.childNodes[index-1].setNextSibling(this.getChildNode(index+1));
+      if (index < this.childNodes.length - 1)
+        this.childNodes[index+1].setPreviousSibling(this.getChildNode(index-1));
+      this.childNodes.splice(index, 1);
+      this.firstChild = this.childNodes[0];
+      this.lastChild = this.childNodes[this.childNodes.length - 1];
+      return true;
+    }; // else - if (index >= this.childNodes.length)
+  }; // TreeNode.prototype.removeChild = function(childNode)
+
+  /**
+   * Insert a node before a child node
+   * @param newChildNode  The new child node to be inserted
+   * @param refChildNode  The targeted node
+   * @returns {Boolean}   Whether successfully inserted
+   */
+  TreeNode.prototype.insertBefore = function(newChildNode, refChildNode) {
+    if (!newChildNode || (newChildNode == refChildNode))
+      return false;
+    if (!refChildNode)
+      return this.appendChild(newChildNode);
+    if (this.contains(newChildNode))
+      this.removeChild(newChildNode);
+    var index;
+    for (index = 0; index < this.childNodes.length; index++) {
+      if (this.childNodes[index] == refChildNode) {
+        break ;
+      }; // if (this.childNodes[index] == refChildNode)
+    } // for (index = 0; index < this.childNodes.length; index++)
+    if (index >= this.childNodes.length)
+      return false;
+    for (var i = this.childNodes.length; i > index; i--)
+      this.childNodes[i] = this.childNodes[i-1];
+    newChildNode.setParentNode(this);
+    newChildNode.setNextSibling(refChildNode);
+    refChildNode.setPreviousSibling(newChildNode);
+    if (index > 0) {
+      this.childNodes[index - 1].setNextSibling(newChildNode);
+      newChildNode.setPreviousSibling(this.childNodes[index - 1]);
+    } else {
+      newChildNode.setPreviousSibling(null);
+    }// else - if (index > 0)
+    this.childNodes[index] = newChildNode;
+    this.firstChild = this.childNodes[0];
+    this.lastChild = this.childNodes[this.childNodes.length - 1];
+    return true;
+  }; // TreeNode.prototype.insertBefore = function(newChildNode, refChildNode)
+
+  /**
+   * Replace a child node with new node
+   * @param newChildNode  The new child node
+   * @param oldChildNode  The current child node
+   * @returns {Boolean}   Whether successfully replaced
+   */
+  TreeNode.prototype.replaceChild = function(newChildNode, oldChildNode) {
+    if (!newChildNode || !oldChildNode || (newChildNode == oldChildNode))
+      return false;
+    var bResult = true;
+    if (this.contains(newChildNode))
+      bResult = this.removeChild(newChildNode);
+    var index;
+    for (index = 0; index < this.childNodes.length; index++) {
+      if (this.childNodes[index] == oldChildNode) {
+        var tmpNode = oldChildNode.getNextSibling();
+        bResult = this.removeChild(oldChildNode);
+        bResult = bResult && this.insertBefore(newChildNode, tmpNode);
+        return bResult;
+      }; // if (this.childNodes[index] == oldChild)
+    } // for (index = 0; index < this.childNodes.length; index++)
+    return false;
+  }; // TreeNode.prototype.replaceChild = function(newChildNode, oldChildNode)
+
+  /**
+   * Check whether a node is contained
+   * @param node          The node to be checked
+   * @returns {Boolean}   Whether it contains the node as its immediate child
+   */
+  TreeNode.prototype.contains = function(node) {
+    if (this == node)
+      return true;
+    for (var i = 0; i < this.childNodes.length; i++) {
+      if (this.childNodes[i] == node)
+        return true;
+    } // for (var i = 0; i < this.childNodes.length; i++)
+    return false;
+  }; // TreeNode.prototype.contains = function(node)
+
+  /**
+   * Check whether it has any child node
+   * @returns {Boolean}   True for having child and false for not
+   */
+  TreeNode.prototype.hasChildNodes = function() {
+    return (this.childNodes.length != 0);
+  }; // TreeNode.prototype.hasChildNodes = function()
+
+  /**
+   * Retrieve information about the tree node and its child nodes
+   * @returns {String}    Information string of the node
+   */
+  TreeNode.prototype.toString = function() {
+    return this.name + 
+           ': parent-' + (this.parentNode == null ?
+                          'null' : this.parentNode.getName()) +
+           '; cs-' + this.childNodes.length +
+           '; fC-' + (this.firstChild == null ?
+                      'null' : this.firstChild.getName()) +
+           '; lC-' + (this.lastChild == null ? 
+                      'null' : this.lastChild.getName()) +
+           '; pS-' + (this.previousSibling == null ?
+                      'null' : this.previousSibling.getName()) +
+           '; nS-' + (this.nextSibling == null ?
+                      'null' : this.nextSibling.getName());
+  }; // TreeNode.prototype.toString = function()
+  </script>
+  <script id="jstree">
+  /**
+   * Javascript Class - Tree
+   * @author  Marco
+   * @version 1.0
+   */
+  function Tree(rootNode, name) {
+    /**
+     * Name of the tree, optional
+     */
+    this.name = (!name) ? '' : name;
+    /**
+     * Root node of the tree
+     */
+    this.rootNode = rootNode;
+  } // function Tree(rootNode, name)
+
+  /**
+   * Get the name of the tree
+   * @returns {String}    Name of the tree
+   */
+  Tree.prototype.getName = function() {
+    return this.name;
+  }; // Tree.prototype.getName = function()
+
+  /**
+   * Set the name of the tree
+   * @param name  Name to be set
+   */
+  Tree.prototype.setName = function(name) {
+    this.name = name;
+  }; // Tree.prototype.setName = function(name)
+
+  /**
+   * Get the root node of the tree
+   * @returns {Object}    Root node of the tree
+   */
+  Tree.prototype.getRootNode = function() {
+    return this.rootNode;
+  }; // Tree.prototype.getRootNode = function()
+
+  /**
+   * Set the new root node of the tree
+   * @param rootNode  The root node to be set
+   */
+  Tree.prototype.setRootNode = function(rootNode) {
+    this.rootNode = rootNode;
+  }; // Tree.prototype.setRootNode = function(rootNode)
+
+  /**
+   * Check whether the tree is empty
+   * @returns {Boolean}   True for empty or false for not
+   */
+  Tree.prototype.isEmptyTree = function() {
+    return (!this.rootNode);
+  }; // Tree.prototype.isEmptyTree = function()
+
+  /**
+   * Check whether a node has another node as child
+   * @param node          The node to be checked
+   * @param childNode     The target child node
+   * @returns {Boolean}   True if has the child or false if not
+   */
+  Tree.prototype.hasChildNode = function(node, childNode) {
+    if (node.contains(childNode))
+      return true;
+    var child = node.getFirstChild();
+    while (child) {
+      if (this.hasChildNode(child, childNode))
+        return true;
+      child = child.getNextSibling();
+    } // while (child)
+    return false;
+  }; // Tree.prototype.hasChildNode = function(node, childNode)
+
+  /**
+   * Check whether the tree has a specific node
+   * @param node          The node to be checked
+   * @returns {Boolean}   True if the tree contains the node or false if not
+   */
+  Tree.prototype.hasNode = function(node) {
+    if (this.isEmptyTree())
+      return false;
+    return this.hasChildNode(this.rootNode, node);
+  }; // Tree.prototype.hasNode = function(node)
+
+  /**
+   * Check whether a node is a leaf node of the tree
+   * @param node          The node to be checked
+   * @returns {Boolean}   True if the node is a leaf or false if not
+   */
+  Tree.prototype.isLeafNode = function(node) {
+    if (!node || !this.hasNode(node))
+      return false;
+    return (!node.hasChildNodes());
+  }; // Tree.prototype.isLeafNode = function(node)
+
+  /**
+   * Get the depth of the tree, start from 1
+   * @returns {Number}        Depth of the tree
+   */
+  Tree.prototype.getTreeDepth = function() {
+    if (this.isEmptyTree())
+      return 0;
+    return this.getNodeDepth(this.rootNode);
+  }; // Tree.prototype.getTreeDepth = function()
+
+  /**
+   * Get the depth of a specific node
+   * @param node          The node to check depth
+   * @returns {Number}    Depth of the node or -1 if not a node of the tree
+   */
+  Tree.prototype.getNodeDepth = function(node) {
+    if (!node || !this.hasNode(node))
+      return -1;
+    if (!node.hasChildNodes())
+      return 1;
+    var result = 0;
+    var child = node.getFirstChild();
+    while(child) {
+      var depth = this.getNodeDepth(child);
+      if (result < depth)
+        result = depth;
+      child = child.getNextSibling();
+    } // while(child)
+    return (result + 1);
+  }; // Tree.prototype.getNodeDepth = function(node)
+
+  /**
+   * Get the level of a specific node
+   * @param node          The node to check level
+   * @returns {Number}    Level of the node of -1 if not a node of the tree
+   */
+  Tree.prototype.getNodeLevel = function(node) {
+    if (!node || !this.hasNode(node))
+      return -1;
+    return this.getTreeDepth() - this.getNodeDepth(node) + 1;
+  }; // Tree.prototype.getNodeLevel = function(node)
+
+  /**
+   * Get information of a node and its child nodes
+   * @param node          The node to find information
+   * @param level         The level of the node, started from 0 
+   * @returns {String}    Inforamtion string of the node
+   */
+  Tree.prototype.getNodeInfo = function(node, level) {
+    var space = '';
+    for (var i = 0; i < level; i++)
+      space += '| ';
+    if (space.length != 0)
+      space = space.substr(0, space.length - 1) + '-';
+    var text = space + node.toString() + '\n';
+    var child = node.getFirstChild();
+    while (child) {
+      text += this.getNodeInfo(child, level + 1);
+      child = child.getNextSibling();
+    } // while (child)
+    return text;
+  }; // Tree.prototype.getNodeInfo = function(node, level)
+
+  /**
+   * Retrieve information about the tree
+   * @returns {String}    Information string of the tree
+   */
+  Tree.prototype.toString = function() {
+    var text = '================================= Tree: ' +
+                this.name +
+               ' =================================\n';
+    text += this.getNodeInfo(this.rootNode, 0);
+    text += '================================= Tree: ' +
+             this.name +
+            ' =================================\n';
+    return text;
+  }; // Tree.prototype.toString = function()
+  </script>
+</body>
+</html>
