@@ -7,6 +7,17 @@ This repository is to take notes of my programming progress.
 Table of Contents
 =================
 
+  - **Ubuntu**
+
+    - Software list -- [list found here] [ubuntu01]
+
+    - Settings -- [list found here] [ubuntu02]
+
+    - Install Java SE from source code -- [tutorial found here] [ubuntu03]
+
+    - Install TexLive -- [tutorial found here] [ubuntu04]
+
+
   - **Java**
 
     - Structured programming sample -- [```MyJavaExample.java```] [java01]
@@ -22,6 +33,7 @@ Table of Contents
     - Invoke system command -- [```RunCmd.java```] [java06] Readme document [here] [java06readme]
 
     - Testing with JUnit -- [```JUnitTests```] [java07] Readme document [here] [java07readme]
+
 
   - **JavaScript**
 
@@ -41,13 +53,18 @@ Table of Contents
 
     - Filefox extension development -- [```FilefoxExtension```] [js08] Readme document [here] [js08readme]
 
+
   - **Python**
+
 
   - **Python - Django**
 
+
   - **Ruby**
 
+
   - **Ruby on Rails**
+
 
 
 Lincence
@@ -57,6 +74,10 @@ MIT
 
 
 
+[ubuntu01]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Software-List-for-Ubuntu
+[ubuntu02]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Settings-for-Ubuntu
+[ubuntu03]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Install-Java-SE-on-Ubuntu
+[ubuntu04]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Install-TeXLive-on-Ubuntu
 [java01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/MyJavaSample.java
 [java02]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/SecureHash.java
 [java03]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/CustomizedEvent
