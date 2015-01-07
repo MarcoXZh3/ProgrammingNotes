@@ -13,10 +13,6 @@ Table of Contents
 
     - Settings -- [list found here] [ubuntu02]
 
-    - Install Java SE -- [tutorial found here] [ubuntu03]
-
-    - Install TexLive -- [tutorial found here] [ubuntu04]
-
 
   - **Java**
 
@@ -76,8 +72,6 @@ MIT
 
 [ubuntu01]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Software-List-for-Ubuntu
 [ubuntu02]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Settings-for-Ubuntu
-[ubuntu03]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Install-Java-SE-on-Ubuntu
-[ubuntu04]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Install-TeXLive-on-Ubuntu
 [java01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/MyJavaSample.java
 [java02]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/SecureHash.java
 [java03]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/CustomizedEvent
