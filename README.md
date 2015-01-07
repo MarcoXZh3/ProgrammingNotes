@@ -13,7 +13,7 @@ Table of Contents
 
     - Settings -- [list found here] [ubuntu02]
 
-    - Install Java SE from source code -- [tutorial found here] [ubuntu03]
+    - Install Java SE -- [tutorial found here] [ubuntu03]
 
     - Install TexLive -- [tutorial found here] [ubuntu04]
 
