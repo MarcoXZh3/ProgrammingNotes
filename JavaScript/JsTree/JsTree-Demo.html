@@ -4,83 +4,83 @@
   <title> JsTreeNode & JsTree </title>
   <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
   <script id= "testcode">
-  function consoleOutput() {
-    var str = "";
-    var root = new JsTreeNode("root");
-    str += "var root = new JsTreeNode(\"root\");\n";
-    var tree = new JsTree(root, "Tree");
-    str += "var tree = new JsTree(root, \"Tree\");\n";
-    str += tree.toString() + "\n";
-    var c12 = new JsTreeNode("c12");
-    str += "var c12 = new JsTreeNode(\"c12\");\n";
-    str += "root.insertChild(0, c12);\t" + root.insertChild(0, c12) + "\n";
-    var c11 = new JsTreeNode("c11");
-    str += "var c11 = new JsTreeNode(\"c11\");\n";
-    str += "root.prependChild(c11);\t\t" + root.prependChild(c11) + "\n";
-    var c14 = new JsTreeNode("c14");
-    str += "var c14 = new JsTreeNode(\"c14\");\n";
-    str += "root.appendChild(c14);\t\t" + root.appendChild(c14) + "\n";
-    str += tree.toString() + "\n";
-    var c13 = new JsTreeNode("c13");
-    str += "var c13 = new JsTreeNode(\"c13\");\n";
-    str += "root.insertChild(2, c13);\t" + root.insertChild(2, c13) + "\n";
-    str += tree.toString() + "\n";
-    var c21 = new JsTreeNode("c21");
-    str += "var c21 = new JsTreeNode(\"c21\");\n";
-    var c22 = new JsTreeNode("c22");
-    str += "var c22 = new JsTreeNode(\"c22\");\n";
-    var c23 = new JsTreeNode("c23");
-    str += "var c23 = new JsTreeNode(\"c23\");\n";
-    var c24 = new JsTreeNode("c24");
-    str += "var c24 = new JsTreeNode(\"c24\");\n";
-    var c25 = new JsTreeNode("c25");
-    str += "var c25 = new JsTreeNode(\"c25\");\n";
-    var c26 = new JsTreeNode("c26");
-    str += "var c26 = new JsTreeNode(\"c26\");\n";
-    str += "c11.insertChild(0, c21);\t" + c11.insertChild(0, c21) + "\n";
-    str += tree.toString() + "\n";
-    str += "c11.appendChild(c22);\t\t" + c11.appendChild(c22) + "\n";
-    str += tree.toString() + "\n";
-    str += "c11.removeChild(new removeChildNode(\"null\"));\t" +
-           c11.removeChild(new JsTreeNode("null")) + "\n";
-    str += tree.toString() + "\n";
-    str += "c11.removeChild(c21);\t\t" + c11.removeChild(c21) + "\n";
-    str += tree.toString() + "\n";
-    str += "c12.appendChild(c23);\t\t" + c12.appendChild(c23) + "\n";
-    str += tree.toString() + "\n";
-    str += "c12.appendChild(c23);\t\t" + c12.appendChild(c23) + "\n";
-    str += tree.toString() + "\n";
-    str += "c12.appendChild(c25);\t\t" + c12.appendChild(c25) + "\n";
-    str += tree.toString() + "\n";
-    str += "c12.replaceChild(c24, new JsTreeNode(\"null\"));\t" +
-           c12.replaceChild(c24, new JsTreeNode("null")) + "\n";
-    str += tree.toString() + "\n";
-    str += "c12.replaceChild(c24, c25);\t" + c12.replaceChild(c24, c25) + "\n";
-    str += tree.toString() + "\n";
-    str += "c13.appendChild(c25);\t\t" + c13.appendChild(c25) + "\n";
-    str += tree.toString() + "\n";
-    str += "c13.appendChild(c26);\t\t" + c13.appendChild(c26) + "\n";
-    str += tree.toString() + "\n";
-    str += "root.removeChild(c12);\t\t" +  root.removeChild(c12) + "\n";
-    str += tree.toString() + "\n";
-    str += "root.removeChild(c13);\t\t" +  root.removeChild(c13) + "\n";
-    str += tree.toString() + "\n";
-    document.getElementById("output").innerHTML = str;
-  } // function consoleOutput()
+    function consoleOutput() {
+      var str = "";
+      var root = new JsTreeNode("root");
+      str += "var root = new JsTreeNode(\"root\");\n";
+      var tree = new JsTree(root, "Tree");
+      str += "var tree = new JsTree(root, \"Tree\");\n";
+      str += tree.toString() + "\n";
+      var c12 = new JsTreeNode("c12");
+      str += "var c12 = new JsTreeNode(\"c12\");\n";
+      str += "root.insertChild(0, c12);\t" + root.insertChild(0, c12) + "\n";
+      var c11 = new JsTreeNode("c11");
+      str += "var c11 = new JsTreeNode(\"c11\");\n";
+      str += "root.prependChild(c11);\t\t" + root.prependChild(c11) + "\n";
+      var c14 = new JsTreeNode("c14");
+      str += "var c14 = new JsTreeNode(\"c14\");\n";
+      str += "root.appendChild(c14);\t\t" + root.appendChild(c14) + "\n";
+      str += tree.toString() + "\n";
+      var c13 = new JsTreeNode("c13");
+      str += "var c13 = new JsTreeNode(\"c13\");\n";
+      str += "root.insertChild(2, c13);\t" + root.insertChild(2, c13) + "\n";
+      str += tree.toString() + "\n";
+      var c21 = new JsTreeNode("c21");
+      str += "var c21 = new JsTreeNode(\"c21\");\n";
+      var c22 = new JsTreeNode("c22");
+      str += "var c22 = new JsTreeNode(\"c22\");\n";
+      var c23 = new JsTreeNode("c23");
+      str += "var c23 = new JsTreeNode(\"c23\");\n";
+      var c24 = new JsTreeNode("c24");
+      str += "var c24 = new JsTreeNode(\"c24\");\n";
+      var c25 = new JsTreeNode("c25");
+      str += "var c25 = new JsTreeNode(\"c25\");\n";
+      var c26 = new JsTreeNode("c26");
+      str += "var c26 = new JsTreeNode(\"c26\");\n";
+      str += "c11.insertChild(0, c21);\t" + c11.insertChild(0, c21) + "\n";
+      str += tree.toString() + "\n";
+      str += "c11.appendChild(c22);\t\t" + c11.appendChild(c22) + "\n";
+      str += tree.toString() + "\n";
+      str += "c11.removeChild(new removeChildNode(\"null\"));\t" +
+             c11.removeChild(new JsTreeNode("null")) + "\n";
+      str += tree.toString() + "\n";
+      str += "c11.removeChild(c21);\t\t" + c11.removeChild(c21) + "\n";
+      str += tree.toString() + "\n";
+      str += "c12.appendChild(c23);\t\t" + c12.appendChild(c23) + "\n";
+      str += tree.toString() + "\n";
+      str += "c12.appendChild(c23);\t\t" + c12.appendChild(c23) + "\n";
+      str += tree.toString() + "\n";
+      str += "c12.appendChild(c25);\t\t" + c12.appendChild(c25) + "\n";
+      str += tree.toString() + "\n";
+      str += "c12.replaceChild(c24, new JsTreeNode(\"null\"));\t" +
+             c12.replaceChild(c24, new JsTreeNode("null")) + "\n";
+      str += tree.toString() + "\n";
+      str += "c12.replaceChild(c24, c25);\t" + c12.replaceChild(c24, c25) + "\n";
+      str += tree.toString() + "\n";
+      str += "c13.appendChild(c25);\t\t" + c13.appendChild(c25) + "\n";
+      str += tree.toString() + "\n";
+      str += "c13.appendChild(c26);\t\t" + c13.appendChild(c26) + "\n";
+      str += tree.toString() + "\n";
+      str += "root.removeChild(c12);\t\t" +  root.removeChild(c12) + "\n";
+      str += tree.toString() + "\n";
+      str += "root.removeChild(c13);\t\t" +  root.removeChild(c13) + "\n";
+      str += tree.toString();
+      document.getElementById("output").innerHTML = str;
+    } // function consoleOutput()
   </script>
   <script>
     function showCodes() {
       var node = document.getElementById("source-jstree");
       var innerHTML = document.getElementById("jstree").innerHTML;
-      node.innerHTML = innerHTML.trim().replace(/\n  /g, "\n");
+      node.innerHTML = innerHTML.trim().replace(/\n    /g, "\n");
 
       node = document.getElementById("source-jstreenode");
       innerHTML = document.getElementById("jstreenode").innerHTML;
-      node.innerHTML = innerHTML.trim().replace(/\n  /g, "\n");
+      node.innerHTML = innerHTML.trim().replace(/\n    /g, "\n");
 
       node = document.getElementById("test");
       innerHTML = document.getElementById("testcode").innerHTML;
-      node.innerHTML = innerHTML.trim().replace(/\n  /g, "\n");
+      node.innerHTML = innerHTML.trim().replace(/\n    /g, "\n");
     } // function showCodes()
   </script>
 </head>
@@ -291,9 +291,9 @@
       }; // var getNodeString = function(root) {...};
 
       this.toString = function() {
-        var text = "================================= JsTree: " + treeName + " =================================\n";
+        var text = "================ JsTree: " + treeName + " ================\n";
         text += getNodeString(rootNode, 0);
-        text += "================================= JsTree: " + treeName + " =================================\n";
+        text += "================ JsTree: " + treeName + " ================\n";
         return text;
       }; // this.toString = function() {...};
 

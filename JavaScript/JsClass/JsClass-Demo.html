@@ -132,7 +132,7 @@
      */
     function JsChildClass(pubName, priName, pubStr, priStr) {
       //JsClass.call(this, the_only_parameter);
-      JsClass.apply(this, new Array(pubStr, priStr));
+      JsClass.apply(this, [pubStr, priStr]);
     } // function JsChildClass(pubName, priName, pubStr, priStr)
 
     /**

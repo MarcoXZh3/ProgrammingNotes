@@ -4,51 +4,51 @@
   <title> JsColor </title>
   <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
   <script id="testcode">
-  function consoleOutput() {
-    var source = document.getElementById("source");
-    var innerHTML = document.getElementById("JsColor").innerHTML;
-    source.innerHTML = innerHTML.trim().replace(/\r\n    /g, "\n");
-    var str = "var white = new JsColor(255, 255, 255);\n";
-    var white = new JsColor(255, 255, 255);
-    str += "white.getColor()\t\t" + white.getColor() + "\n";
-    str += "white.hasAlphaChannel()\t\t" + white.hasAlphaChannel() + "\n";
-    str += "white.getAlpha()\t\t" + white.getAlpha() + "\n";
-    str += "white.toString()\t\t" + white.toString() + "\n\n";
-    var tWhite = new JsColor(255, 255, 255, 0.5);
-    str += "var tWhite = new JsColor(255, 255, 255, 0.5);\n";
-    str += "tWhite.getRed()\t\t\t" + tWhite.getRed() + "\n";
-    str += "tWhite.getGreen()\t\t" + tWhite.getGreen() + "\n";
-    str += "tWhite.getBlue()\t\t" + tWhite.getBlue() + "\n";
-    str += "tWhite.hasAlphaChannel()\t" + tWhite.hasAlphaChannel() + "\n";
-    str += "tWhite.getAlpha()\t\t" + tWhite.getAlpha() + "\n";
-    str += "tWhite.getColor()\t\t" + tWhite.getColor() + "\n";
-    str += "tWhite.toString()\t\t" + tWhite.toString() + "\n\n";
-    var blue = JsColor.parseColor("255");
-    str += "var blue = JsColor.parseColor(\"255\");\n";
-    str += "blue.toString()\t\t\t" + blue.toString() + "\n\n";
-    var green = JsColor.parseColor("RGB(0, 255, 0)");
-    str += "var green = JsColor.parseColor(\"RGB(0, 255, 0)\");\n";
-    str += "green.toString()\t\t" + green.toString() + "\n\n";
-    var red = JsColor.parseColor("#F000");
-    str += "var red = JsColor.parseColor(\"#F000\");\n";
-    str += "red.toString()\t\t\t" + red.toString() + "\n\n";
-    var yellow = JsColor.parseColor("Yellow");
-    str += "var yellow = JsColor.parseColor(\"Yellow\");\n";
-    str += "yellow.toString()\t\t" + yellow.toString() + "\n\n";
-    var invalid = JsColor.parseColor("invalid");
-    str += "var invalid = JsColor.parseColor(\"invalid\");\n";
-    str += "invalid.toString()\t\t" + invalid.toString() + "\n";
-    invalid = JsColor.parseColor();
-    str += "invalid = JsColor.parseColor();\n";
-    str += "invalid.toString()\t\t" + invalid.toString() + "\n\n";
-    document.getElementById("output").innerHTML = str;
-  } // function consoleOutput()
+    function consoleOutput() {
+      var source = document.getElementById("source");
+      var innerHTML = document.getElementById("JsColor").innerHTML;
+      source.innerHTML = innerHTML.trim().replace(/\n    /g, "\n");
+      var str = "var white = new JsColor(255, 255, 255);\n";
+      var white = new JsColor(255, 255, 255);
+      str += "white.getColor()\t\t" + white.getColor() + "\n";
+      str += "white.hasAlphaChannel()\t\t" + white.hasAlphaChannel() + "\n";
+      str += "white.getAlpha()\t\t" + white.getAlpha() + "\n";
+      str += "white.toString()\t\t" + white.toString() + "\n\n";
+      var tWhite = new JsColor(255, 255, 255, 0.5);
+      str += "var tWhite = new JsColor(255, 255, 255, 0.5);\n";
+      str += "tWhite.getRed()\t\t\t" + tWhite.getRed() + "\n";
+      str += "tWhite.getGreen()\t\t" + tWhite.getGreen() + "\n";
+      str += "tWhite.getBlue()\t\t" + tWhite.getBlue() + "\n";
+      str += "tWhite.hasAlphaChannel()\t" + tWhite.hasAlphaChannel() + "\n";
+      str += "tWhite.getAlpha()\t\t" + tWhite.getAlpha() + "\n";
+      str += "tWhite.getColor()\t\t" + tWhite.getColor() + "\n";
+      str += "tWhite.toString()\t\t" + tWhite.toString() + "\n\n";
+      var blue = JsColor.parseColor("255");
+      str += "var blue = JsColor.parseColor(\"255\");\n";
+      str += "blue.toString()\t\t\t" + blue.toString() + "\n\n";
+      var green = JsColor.parseColor("RGB(0, 255, 0)");
+      str += "var green = JsColor.parseColor(\"RGB(0, 255, 0)\");\n";
+      str += "green.toString()\t\t" + green.toString() + "\n\n";
+      var red = JsColor.parseColor("#F000");
+      str += "var red = JsColor.parseColor(\"#F000\");\n";
+      str += "red.toString()\t\t\t" + red.toString() + "\n\n";
+      var yellow = JsColor.parseColor("Yellow");
+      str += "var yellow = JsColor.parseColor(\"Yellow\");\n";
+      str += "yellow.toString()\t\t" + yellow.toString() + "\n\n";
+      var invalid = JsColor.parseColor("invalid");
+      str += "var invalid = JsColor.parseColor(\"invalid\");\n";
+      str += "invalid.toString()\t\t" + invalid.toString() + "\n";
+      invalid = JsColor.parseColor();
+      str += "invalid = JsColor.parseColor();\n";
+      str += "invalid.toString()\t\t" + invalid.toString() + "\n";
+      document.getElementById("output").innerHTML = str;
+    } // function consoleOutput()
   </script>
   <script>
     function showTestCode() {
       var test = document.getElementById("test");
       var innerHTML = document.getElementById("testcode").innerHTML;
-      test.innerHTML = innerHTML.trim().replace(/\n  /g, "\n");
+      test.innerHTML = innerHTML.trim().replace(/\n    /g, "\n");
     } // function showTestCode()
   </script>
 </head>

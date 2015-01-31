@@ -4,9 +4,9 @@
  * Firefox return '';
  * Chrome, Opera and Safari return null;
  * IE return '' or undefined
- * @param element  The element to get style
+ * @param element   The element to get style
  * @param property  The full CSS style
- * @returns      value of the style
+ * @returns         value of the style
  */
 function getCssValue(element, property) {
   // Note: Currently, all browsers support "document.defaultView..."

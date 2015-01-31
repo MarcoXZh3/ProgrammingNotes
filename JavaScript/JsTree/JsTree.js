@@ -186,9 +186,9 @@ function JsTree(treeRoot, name) {
   }; // var getNodeString = function(root) {...};
 
   this.toString = function() {
-    var text = "================================= JsTree: " + treeName + " =================================\n";
+    var text = "================ JsTree: " + treeName + " ================\n";
     text += getNodeString(rootNode, 0);
-    text += "================================= JsTree: " + treeName + " =================================\n";
+    text += "================ JsTree: " + treeName + " ================\n";
     return text;
   }; // this.toString = function() {...};
 
