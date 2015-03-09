@@ -47,7 +47,9 @@ Table of Contents
 
     - Tree implementation -- [```JsTree```] [js07]
 
-    - Filefox extension development -- [```FilefoxExtension```] [js08] Readme document [here] [js08readme]
+    - Wait-util-done procedure in loop recursion -- [```WaitUtilDoneInLoopRecursion```] [js08]
+
+    - Filefox extension development -- [```FilefoxExtension```] [js09] Readme document [here] [js09readme]
 
 
   - **Python**
@@ -90,5 +92,8 @@ MIT
 [js05readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Object-oriented-programming
 [js06]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsColor
 [js07]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsTree
-[js08]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension
-[js08readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Filefox-extension-development
+[js08]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/WaitUtilDoneInLoopRecursion
+[js09]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension
+[js09readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Filefox-extension-development
+
+
