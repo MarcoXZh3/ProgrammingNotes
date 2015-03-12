@@ -137,7 +137,7 @@
     /**
      * JavaScript Implementation of "JsTreeNode" class
      * @author  MarcoXZh
-     * @version 2.0
+     * @version 2.1
      */
     function JsTreeNode(name) {
       this.nodeName = name;
@@ -158,9 +158,14 @@
       var findChild = function(node, child) {
         if (!child || child.constructor.name !== node.constructor.name)
           return -1;
-        for (i in node.children)
-          if (node.children[i] === child)
-            return parseInt(i);
+        var c = node.firstChild;
+        var index = 0;
+        while (c) {
+          if (c === child)
+            return index;
+          c = c.nextSibling;
+          index ++;
+        } // while (c)
         return -1;
       }; // var findChild = function(root, child) {...};
 
@@ -223,8 +228,7 @@
         this.children.splice(index, 1);
         this.childCount --;
         this.firstChild = this.childCount === 0 ? null : this.children[0];
-        this.lastChild = this.childCount === 0 ?
-                         null : this.children[this.childCount - 1];
+        this.lastChild = this.childCount === 0 ? null : this.children[this.childCount - 1];
         if (child.nextSibing)
           child.nextSibing.previousSibling = child.previousSibing;
         if (child.previousSibing)
@@ -277,16 +281,18 @@
        * @return            {String} string representation of the node
        */
       this.toString = function() {
-        var str = this.nodeName +
-                  ": parent=" + (this.parent == null ?
-                                 "null" : this.parent.nodeName) +
+        var str = this.nodeName + ": parent=" + (this.parent == null ?
+                                                 "null" : this.parent.nodeName) +
                   ";prev=" + (this.previousSibling ?
                               this.previousSibling.nodeName : "null") +
                   ";next=" + (this.nextSibling ?
                               this.nextSibling.nodeName : "null") +
                   "; children(" + this.childCount + ")=[";
-        for (i in this.children)
-          str += this.children[i].nodeName + ", ";
+        var child = this.firstChild;
+        while (child) {
+          str += child.nodeName + ", ";
+          child = child.nextSibling;
+        } // while (child)
         if (this.childCount > 0)
           str = str.substr(0, str.length - 2);
         str += "]:first=" + (this.firstChild ? this.firstChild.nodeName : "null") +
@@ -301,7 +307,7 @@
     /**
      * JavaScript Implementation of "JsTree" class
      * @author  MarcoXZh
-     * @version 2.0
+     * @version 2.1
      */
     function JsTree(treeRoot, name) {
       this.treeName = name;

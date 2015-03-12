@@ -1,7 +1,7 @@
 /**
  * JavaScript Implementation of "JsTreeNode" class
  * @author  MarcoXZh
- * @version 2.0
+ * @version 2.1
  */
 function JsTreeNode(name) {
   this.nodeName = name;
@@ -22,9 +22,14 @@ function JsTreeNode(name) {
   var findChild = function(node, child) {
     if (!child || child.constructor.name !== node.constructor.name)
       return -1;
-    for (i in node.children)
-      if (node.children[i] === child)
-        return parseInt(i);
+    var c = node.firstChild;
+    var index = 0;
+    while (c) {
+      if (c === child)
+        return index;
+      c = c.nextSibling;
+      index ++;
+    } // while (c)
     return -1;
   }; // var findChild = function(root, child) {...};
 
@@ -144,8 +149,11 @@ function JsTreeNode(name) {
               ";prev=" + (this.previousSibling ? this.previousSibling.nodeName : "null") +
               ";next=" + (this.nextSibling ? this.nextSibling.nodeName : "null") +
               "; children(" + this.childCount + ")=[";
-    for (i in this.children)
-      str += this.children[i].nodeName + ", ";
+    var child = this.firstChild;
+    while (child) {
+      str += child.nodeName + ", ";
+      child = child.nextSibling;
+    } // while (child)
     if (this.childCount > 0)
       str = str.substr(0, str.length - 2);
     str += "]:first=" + (this.firstChild ? this.firstChild.nodeName : "null") +
@@ -159,7 +167,7 @@ function JsTreeNode(name) {
 /**
  * JavaScript Implementation of "JsTree" class
  * @author  MarcoXZh
- * @version 2.0
+ * @version 2.1
  */
 function JsTree(treeRoot, name) {
   this.treeName = name;
