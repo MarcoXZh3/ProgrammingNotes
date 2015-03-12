@@ -1,221 +1,326 @@
-/**
+    /**
  * JavaScript Implementation of "JsTreeNode" class
  * @author  MarcoXZh
- * @version  1.1
+ * @version 2.0
  */
 function JsTreeNode(name) {
-  var nodeName = "";
-  var parentNode = null;
-  var children = [];
+  this.nodeName = name;
+  this.parent = null;
+  this.childCount = 0;
+  this.children = [];
+  this.firstChild = null;
+  this.lastChild = null;
+  this.nextSibling = null;
+  this.previousSibling = null;
 
-  this.getName = function() {
-    return nodeName;
-  }; // this.getName = function() {...};
+  /**
+   * Find out the index of "child" from children list of "node"
+   * @param node        {JsTreeNode} the parent node to be searched
+   * @param child       {JsTreeNode} the target node
+   * @return            {Number} the index of the node; -1 means not found
+   */
+  var findChild = function(node, child) {
+    if (!child || child.constructor.name !== node.constructor.name)
+      return -1;
+    for (i in node.children)
+      if (node.children[i] === child)
+        return parseInt(i);
+    return -1;
+  }; // var findChild = function(root, child) {...};
 
-  this.setName = function(name) {
-    nodeName = name;
-  }; // this.setName = function(name) {...};
-
-  this.getParent = function() {
-    return parentNode;
-  }; // this.getParent = function() {...};
-
-  this.setParent = function(parent) {
-    parentNode = parent;
-  }; // this.setParent = function(parent) {...};
-
-  this.getChildrenSize = function() {
-    return children.length;
-  }; // this.getChildrenSize = function() {...};
-
-  this.getChild = function(index) {
-    return (index < 0 || index > children.length - 1) ? null : children[index];
-  }; // this.getChild = function(index) {...};
-
-  this.setChild = function(index, node) {
-    if (index < 0 || index > children.length - 1)
+  /**
+   * Append a new child node to this node
+   * @param child       {JsTreeNode} the new child node
+   * @return            {Boolean} true for succed; false for fail
+   */
+  this.appendChild = function(child) {
+    if (findChild(this, child) !== -1)
       return false;
-    children[index] = node;
+    this.childCount = this.children.push(child);
+    this.lastChild = child;
+    if (this.childCount === 1) {
+      this.firstChild = child;
+      child.previousSibling = null;
+    } else {
+      child.previousSibling = this.children[this.childCount - 2];
+      this.children[this.childCount - 2].nextSibling = child;
+    } // else - if (this.childCount === 1)
+    child.parent = this;
+    child.nextSibling = null;
     return true;
-  }; // this.setChild = function(index, node) {};
+  }; // this.appendChild = function(child) {...};
 
-  this.insertChild = function(index, node) {
-    if (!node || node.constructor.name !== this.constructor.name ||
-        index < 0 || index > children.length - 1)
+  /**
+   * Insert a new child before an existing child
+   * @param curChild    {JsTreeNode} the existing child
+   * @param newChild    {JsTreeNode} the new child
+   * @return            {Boolean} true for succed; false for fail
+   */
+  this.insertBefore = function(curChild, newChild) {
+    var index = findChild(this, curChild);
+    if (index < 0)
       return false;
-    children = children.slice(0, index).concat(node, children.slice(index, children.length));
+    this.children.splice(index, 0, newChild);
+    this.childCount ++;
+    newChild.parent = this;
+    if (index === 0) {
+      this.firstChild = newChild;
+      newChild.previousSibling = null;
+    } else {
+      newChild.previousSibling = this.chilren[index - 1];
+      this.chilren[index - 1].nextSibling = newChild;
+    } // else - if (index === 0)
+    newChild.nextSibling = curChild;
+    curChild.previousSibling = newChild;
     return true;
-  }; // this.insertChild = function(index, node) {...};
+  }; // this.insertBefore = function(curChild, newChild) {...};
 
-  this.prependChild = function(node) {
-    if (!node || node.constructor.name !== this.constructor.name)
+  /**
+   * Remove an existing child
+   * @param child       {JsTreeNode} the child to be removed
+   * @return            {Boolean} true for succed; false for fail
+   */
+  this.removeChild = function(child) {
+    var index = findChild(this, child);
+    if (index < 0)
       return false;
-    children.unshift(node);
-    node.setParent(this);
+    this.children.splice(index, 1);
+    this.childCount --;
+    this.firstChild = this.childCount === 0 ? null : this.children[0];
+    this.lastChild = this.childCount === 0 ? null : this.children[this.childCount - 1];
+    if (child.nextSibing)
+      child.nextSibing.previousSibling = child.previousSibing;
+    if (child.previousSibing)
+      child.previousSibing.nextSibling = child.nextSibing;
+    child.parent = null;
+    child.nextSibling = null;
+    child.previousSibling = null;
     return true;
-  }; // this.prependChild = function(node) {...};
+  }; // this.removeChild = function(child) {...};
 
-  this.appendChild = function(node) {
-    if (!node || node.constructor.name !== this.constructor.name)
+  /**
+   * Replace an existing child with the new child before
+   * @param curChild    {JsTreeNode} the existing child
+   * @param newChild    {JsTreeNode} the new child
+   * @return            {Boolean} true for succed; false for fail
+   */
+  this.replaceChild = function(curChild, newChild) {
+    var index = findChild(this, curChild);
+    if (index < 0)
       return false;
-    children.push(node);
+    this.children.splice(index, 1, newChild);
+    newChild.parent = this;
+    if (index === 0)
+      this.firstChild = newChild;
+    else if (index === this.childCount - 1)
+      this.lastChild = newChild;
+    newChild.previousSibling = curChild.previousSibling;
+    newChild.nextSibling = curChild.nextSibling;
+    if (curChild.nextSibling)
+      curChild.nextSibling.previousSibling = newChild;
+    if (curChild.previousSibling)
+      curChild.previousSibling.nextSibling = newChild;
+    curChild.parent = null;
+    curChild.nextSibling = null;
+    curChild.previousSibling = null;
     return true;
-  }; // this.appendChild = function(node) {...};
+  }; // this.replaceChild = function(curChild, newChild) {...};
 
-  this.removeChild = function(para) {
-    if (!para)
-      return false;
-    if (typeof para === "number") {
-      children[para].setParent(null);
-      children.splice(para, 1);
-      return true;
-    } else if (para.constructor.name === this.constructor.name) {
-      for (i in children)
-        if (children[i] === para) {
-          children[i].setParent(null);
-          children.splice(i, 1);
-          return true;
-        } // for - if
-    } // else - if
-    return false;
-  }; // this.removeChild = function(para) {...};
+  /**
+   * Check if the node contains an immediate child
+   * @param child       {JsTreeNode} the child to be searched
+   * @return            {Boolean} true for existing; false for not
+   */
+  this.contains = function(child) {
+    return findChild(this, child) !== -1;
+  }; // this.contains = function(child) {...};
 
-  this.replaceChild = function(oldChild, newChild) {
-    if (!oldChild || oldChild.constructor.name !== this.constructor.name ||
-        !newChild || newChild.constructor.name !== this.constructor.name)
-      return false;
-    for (i in children)
-      if (children[i] === oldChild) {
-        children[i] = newChild;
-        return true;
-      } // for - if
-    return false;
-  }; // this.replaceChild = function(oldChild, newChild) {...};
-
-  this.containsChild = function(node) {
-    if (!node || node.constructor.name !== this.constructor.name)
-      return false;
-    for (i  in children)
-      if (children[i] === node)
-        return true;
-    return false;
-  }; // this.containsChild = function(node) {...};
-
+  /**
+   * Cast the node into a string
+   * @return            {String} string representation of the node
+   */
   this.toString = function() {
-    var str = nodeName + ": parent-" + (parentNode == null ? "null" : parentNode.getName()) +
-              "; children(" + children.length + ")-[";
-    for (i in children)
-      str += children[i].getName() + ", ";
-    if (children.length > 0)
+    var str = this.nodeName + ": parent=" + (this.parent == null ? "null" : this.parent.nodeName) +
+              ";prev=" + (this.previousSibling ? this.previousSibling.nodeName : "null") +
+              ";next=" + (this.nextSibling ? this.nextSibling.nodeName : "null") +
+              "; children(" + this.childCount + ")=[";
+    for (i in this.children)
+      str += this.children[i].nodeName + ", ";
+    if (this.childCount > 0)
       str = str.substr(0, str.length - 2);
-    return str + "]";
+    str += "]:first=" + (this.firstChild ? this.firstChild.nodeName : "null") +
+           ";last=" + (this.lastChild ? this.lastChild.nodeName : "null");
+    return str;
   }; // this.toString = function() {...};
 
-  this.setName(name);
 } // function JsTreeNode(name)
 
 
 /**
  * JavaScript Implementation of "JsTree" class
  * @author  MarcoXZh
- * @version  1.1
+ * @version 2.0
  */
 function JsTree(treeRoot, name) {
-  var treeName = "";
-  var rootNode = null;
+  this.treeName = name;
+  this.root = treeRoot;
 
-  this.getName = function() {
-    return treeName;
-  }; // this.getName = function() {...};
+  /**
+   * Remove all nodes frome the tree
+   * @return            {Boolean} true for succed; false for fail
+   */
+  this.empty = function() {
+    this.root = null;
+    return true;
+  }; // this.empty = function() {...};
 
-  this.setName = function(name) {
-    treeName = name;
-  }; // this.setName = function(name) {...};
-
-  this.getRoot = function() {
-    return rootNode;
-  }; // this.getRoot = function() {...};
-
-  this.setRoot = function(root) {
-    rootNode = root;
-  }; // this.setRoot = function(root) {...};
-
+  /**
+   * Check if the tree is empty
+   * @return            {Boolean} true for empty; false for not
+   */
   this.isEmpty = function() {
-    return rootNode === null || rootNode === undefined;
+    return this.root === null || this.root === undefined;
   }; // this.isEmpty = function() {...};
 
+  /**
+   * Find if the node is in the sub tree
+   * @param root        {JsTreeNode} root node of the sub tree
+   * @param node        {JsTreeNode} the target node to be searched
+   * @return            {Boolean} true for found; false for not
+   */
   var hasNode = function(root, node) {
     if (root === node)
       return true;
-    var index = root.getChildrenSize();
-    while (index-- > 0) {
-      if (hasNode(root.getChildNode(index), node))
+    var index = 0;
+    while (index++ < root.childCount)
+      if (hasNode(root.children[index - 1], node))
         return true;
-    } // while (index-- >= 0)
     return false;
   }; // var hasNode = function(root, node) {...};
 
-  this.containsNode = function(node) {
-    if (!node)
-      return false;
-    return hasNode(rootNode);
-  }; // this.containsNode = function(node) {...};
+  /**
+   * Find if the node is in the tree
+   * @param node        {JsTreeNode} the target node to be searched
+   * @return            {Boolean} true for found; false for not
+   */
+  this.contains = function(node) {
+    return !(!node) && !this.isEmpty() && hasNode(this.root, node);
+  }; // this.contains = function(node) {...};
 
-  var getSubTreeDepth = function(root) {
-    var depth = 0, index = root.getChildrenSize();
-    while (index-- > 0) {
-      var d = getSubTreeDepth(root.getChildNode(index));
-      if (d > depth)
-        depth = d;
-    } // while (index-- >= 0)
-    return depth + 1;
-  }; // var getSubTreeDepth = function(root) {...};
+  /**
+   * Return the path of a node
+   * @param node        {JsTreeNode} the target node to be searched
+   * @return            {String} path of the node; null means not in the tree
+   */
+  this.getNodePath = function(node) {
+    if (!node || this.isEmpty() || !hasNode(this.root, node))
+      return null;
+    var path = "/" + node.nodeName;
+    var parent = node.parent;
+    while (parent) {
+      path = "/" + parent.nodeName + path;
+      parent = parent.parent;
+    } // while (parent)
+    return path;
+  }; // this.getNodePath = function(node) {...};
 
-  this.getTreeDepth = function() {
-    if (!rootNode)
-      return 0;
-    return getSubTreeDepth(rootNode);
-  }; // this.getTreeDepth = function() {...};
-
+  /**
+   * Find the depth of a node:
+   * number of edges from the node to the root
+   * @param node        {JsTreeNode} the target node to be searched
+   * @return            {Number} depth of the node; -1 means not in the tree
+   */
   this.getNodeDepth = function(node) {
-    return this.containsNode(node) ? getSubTreeDepth(node) : -1;
+    if (!node || this.isEmpty() || !hasNode(this.root, node))
+      return -1;
+    var parent = node.parent;
+    var depth = 0;
+    while (parent) {
+      depth ++;
+      parent = parent.parent;
+    } // while (parent)
+    return depth;
   }; // this.getNodeDepth = function(node) {...};
 
+  /**
+   * Find the level of a node:
+   * 1 + number of edges between the node and the root
+   * @param node        {JsTreeNode} the target node to be searched
+   * @return            {Number} level of the node; -1 means not in the tree
+   */
   this.getNodeLevel = function(node) {
-    if (!this.containsNode(node))
-      return -1;
-    var parent = node.getParentNode();
-    var level = 1;
-    while (!parent) {
-      level ++;
-      parent = parent.getParentNode();
-    } // while (!parent)
-    return level;
+    return (!node || this.isEmpty() || !hasNode(this.root, node)) ? -1 : this.getNodeDepth(node) + 1;
   }; // this.getNodeLevel = function(node) {...};
 
+  /**
+   * Find the height of a node (assume it's in the tree):
+   * number of edges on the longest downward path between the node and a leaf
+   * @param node        {JsTreeNode} the target node to be searched
+   * @return            {Number} height of the node
+   */
+  var getHeight = function(node) {
+    if (node.childCount === 0)
+      return 0;
+    var height = 0, index = 0;
+    while (index++ < node.childCount) {
+      var h = getHeight(node.children[index - 1]);
+      if (h > height)
+        height = h;
+    } // while (index++ < node.childCount)
+    return height + 1;
+  }; // var getHeight = function(node) {...};
+
+  /**
+   * Find the height of a node:
+   * number of edges on the longest downward path between the node and a leaf
+   * @param node        {JsTreeNode} the target node to be searched
+   * @return            {Number} height of the node; -1 means not in the tree
+   */
+  this.getNodeHeight = function(node) {
+    return (!node || this.isEmpty() || !hasNode(this.root, node)) ? -1 : getHeight(node);
+  }; // this.getNodeHeight = function(node) {...};
+
+  /**
+   * Find the height of the tree:
+   * number of edges on the longest downward path between the root and a leaf
+   * @param node        {JsTreeNode} the target node to be searched
+   * @return            {Number} height of the tree
+   */
+  this.getTreeHeight = function() {
+    return this.isEmpty() ? 0 : getHeight(this.root);
+  }; // this.getTreeHeight = function() {...};
+
+  /**
+   * Cast a sub tree to into a string with proper indentation
+   * @param root        {JsTreeNode} root of the sub tree
+   * @return            {String} string representation of the sub tree
+   */
   var getNodeString = function(root, level) {
-    var text = "  ";
+    var str = "  ";
     var index = 0;
     while (index++ < level)
-      text += "| ";
-    if (text.length != 2)
-      text = text.substr(0, text.length - 1) + "-";
-    text += root.toString() + "\n";
-    index = -1;
-    var size = root.getChildrenSize();
-    while (index++ < size - 1)
-      text += getNodeString(root.getChild(index), level + 1);
-    return text;
-  }; // var getNodeString = function(root) {...};
+      str += "| ";
+    if (str.length != 2)
+      str = str.substr(0, str.length - 1) + "-";
+    str += root.toString() + "\n";
+    index = 0;
+    while (index++ < root.childCount)
+      str += getNodeString(root.children[index - 1], level + 1);
+    return str;
+  }; // var getNodeString = function(node, level) {...};
 
+  /**
+   * Cast the tree into a string
+   * @return            {String} string representation of the tree
+   */
   this.toString = function() {
-    var text = "================ " + this.constructor.name + ": \"" + treeName + "\" ================\n";
-    text += getNodeString(rootNode, 0);
-    text += "================ " + this.constructor.name + ": \"" + treeName + "\" ================\n";
-    return text;
+    if (this.isEmpty())
+      return "{Empty}";
+    var str = "================ " + this.constructor.name + ": \"" + this.treeName + "\" ================\n";
+    str += getNodeString(this.root, 0);
+    str += "================ " + this.constructor.name + ": \"" + this.treeName + "\" ================";
+    return str;
   }; // this.toString = function() {...};
 
-  this.setRoot(treeRoot);
-  this.setName(name);
 } // function JsTree(treeRoot, name)
 
