@@ -1,4 +1,4 @@
-    /**
+/**
  * JavaScript Implementation of "JsTreeNode" class
  * @author  MarcoXZh
  * @version 2.0
