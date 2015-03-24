@@ -85,7 +85,8 @@
       str += "tree.getNodeHeight(root);\t\t" +  tree.getNodeHeight(root) + "\n";
       str += "tree.getNodeHeight(c23);\t\t" +  tree.getNodeHeight(c23) + "\n";
       str += "tree.getNodeHeight(nullNode);\t\t" +  tree.getNodeHeight(nullNode) + "\n";
-      str += "tree.getTreeHeight();\t\t\t" +  tree.getTreeHeight() + "\n\n";
+      str += "tree.getTreeHeight();\t\t\t" +  tree.getTreeHeight() + "\n";
+      str += "tree.getTreeSize();\t\t\t" +  tree.getTreeSize() + "\n\n";
 
       str += "root.removeChild(c12);\t\t\t" +  root.removeChild(c12) + "\n";
       str += "  " + tree.toString().replace(/\n/g, "\n  ") + "\n";
@@ -97,6 +98,7 @@
       str += "tree.contains(root);\t\t\t" +  tree.contains(root) + "\n";
       str += "tree.contains(nullNode);\t\t" +  tree.contains(nullNode) + "\n";
       str += "tree.contains(null);\t\t\t" +  tree.contains(null) + "\n";
+      str += "tree.getTreeSize();\t\t\t" +  tree.getTreeSize() + "\n";
       document.getElementById("output").innerHTML = str;
     } // function consoleOutput()
   </script>
@@ -439,6 +441,30 @@
       this.getTreeHeight = function() {
         return this.isEmpty() ? 0 : getHeight(this.root);
       }; // this.getTreeHeight = function() {...};
+
+      /**
+       * Find the number of nodes from the sub tree:
+       * @param root        {JsTreeNode} root of the sub tree
+       * @return            {Number} size of the sub tree
+       */
+      var getSize = function(root) {
+        var size = 1;
+        if (root.childCount === 0)
+          return size;
+        var index = 0;
+        while (index++ < root.childCount)
+          size += getSize(root.children[index - 1]);
+        return size;
+      }; // var getSize = function(root) {};
+
+      /**
+       * Find the number of nodes from the tree:
+       * @param root        {JsTreeNode} root of the sub tree
+       * @return            {String} string representation of the sub tree
+       */
+      this.getTreeSize = function() {
+        return this.isEmpty() ? 0 : getSize(this.root);
+      }; // this.getTreeSize = function() {...};
 
       /**
        * Cast a sub tree to into a string with proper indentation

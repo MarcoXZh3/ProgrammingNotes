@@ -299,6 +299,30 @@ function JsTree(treeRoot, name) {
   }; // this.getTreeHeight = function() {...};
 
   /**
+   * Find the number of nodes from the sub tree:
+   * @param root        {JsTreeNode} root of the sub tree
+   * @return            {Number} size of the sub tree
+   */
+  var getSize = function(root) {
+    var size = 1;
+    if (root.childCount === 0)
+      return size;
+    var index = 0;
+    while (index++ < root.childCount)
+      size += getSize(root.children[index - 1]);
+    return size;
+  }; // var getSize = function(root) {};
+
+  /**
+   * Find the number of nodes from the tree:
+   * @param root        {JsTreeNode} root of the sub tree
+   * @return            {String} string representation of the sub tree
+   */
+  this.getTreeSize = function() {
+    return this.isEmpty() ? 0 : getSize(this.root);
+  }; // this.getTreeSize = function() {...};
+
+  /**
    * Cast a sub tree to into a string with proper indentation
    * @param root        {JsTreeNode} root of the sub tree
    * @return            {String} string representation of the sub tree
