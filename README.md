@@ -54,6 +54,8 @@ Table of Contents
 
   - **Python**
 
+    - Put 1s into a binary number -- [```BinaryNumberWithOnes```] [python01]
+
 
   - **Python - Django**
 
@@ -62,13 +64,6 @@ Table of Contents
 
 
   - **Ruby on Rails**
-
-
-
-Lincence
-========
-
-MIT
 
 
 
@@ -95,5 +90,5 @@ MIT
 [js08]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/WaitUtilDoneInLoopRecursion
 [js09]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension
 [js09readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Filefox-extension-development
-
+[python01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Python/BinaryNumberWithOnes.py
 
