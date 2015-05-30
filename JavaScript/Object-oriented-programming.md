@@ -82,7 +82,7 @@ Add static members
 ------------------
 
 Static members of a class are shared by all instances. It can be accessed outside of the
-class and directly referred by the class –- this is exactly how JavaScript’s regular
+class and directly referred by the class – this is exactly how JavaScript’s regular
 properties behave. Thus, defining a static member is the same as defining a property, and
 invoking a static member is the same as invoking a property.
 
