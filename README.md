@@ -57,14 +57,6 @@ Table of Contents
     - Put 1s into a binary number -- [```BinaryNumberWithOnes```] [python01]
 
 
-  - **Python - Django**
-
-
-  - **Ruby**
-
-
-  - **Ruby on Rails**
-
 
 
 [ubuntu01]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Software-List-for-Ubuntu
