@@ -9,30 +9,30 @@ Creating an executable jar file
     import java.net.URL;
     import javax.swing.ImageIcon;
     import javax.swing.JOptionPane;
-    
+
     /**
      * Executable Jar Example
      * @author  Marco
      * @version 1.0.0.0
      */
     public class ExecutableJar {
-    	/**
-    	 * Program main entry
-    	 * @param args  (<code>String[]</code>) Command line arguments
-    	 */
-    	public static void main(String[] args) {
-    		String strIcon = "resources/info.png";
-    		// NOTE: inside the JAR file, use absolute path instead of relative paths!
-    		URL url = System.class.getResource("/" + strIcon);
-    		ImageIcon icon;
-    		if (url == null)
-    			icon = new ImageIcon(strIcon);
-    		else
-    			icon = new ImageIcon(url);
-    		File iconFile = new File((url == null) ? strIcon : url.toString());
-    		JOptionPane.showMessageDialog(null, iconFile.getAbsolutePath(), "Executable Jar",
-    									  JOptionPane.PLAIN_MESSAGE, icon);
-    	} // public static void main(String[] args)
+        /**
+         * Program main entry
+         * @param args  (<code>String[]</code>) Command line arguments
+         */
+        public static void main(String[] args) {
+            String strIcon = "resources/info.png";
+            // NOTE: inside the JAR file, use absolute path instead of relative paths!
+            URL url = System.class.getResource("/" + strIcon);
+            ImageIcon icon;
+            if (url == null)
+                icon = new ImageIcon(strIcon);
+            else
+                icon = new ImageIcon(url);
+            File iconFile = new File((url == null) ? strIcon : url.toString());
+            JOptionPane.showMessageDialog(null, iconFile.getAbsolutePath(), "Executable Jar",
+                                          JOptionPane.PLAIN_MESSAGE, icon);
+        } // public static void main(String[] args)
     } // public class ExecutableJar
     ```
     You can find the source code [here] [1] and image file [here] [2].
@@ -66,10 +66,6 @@ Creating an executable jar file
     ```
 
 
-Lincence
-========
-
-MIT
 
 
 [1]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/ExecutableJar/ExecutableJar.java

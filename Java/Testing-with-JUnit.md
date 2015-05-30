@@ -87,57 +87,57 @@ Create test cases
 
     ```java
     package testcase;
-    
+
     import junit.framework.TestCase;
     import org.junit.After;
     import org.junit.Before;
     import org.junit.Test;
-    
+
     /**
      * Testing class - Java String behavior
-     * @author	Marco
-     * @version	1.0.0.0
+     * @author    Marco
+     * @version    1.0.0.0
      */
     public class StringTest extends TestCase {
-    	
-    	private String str1 = null;
-    	private String str2 = null;
-    	private String str3 = null;
-    
-    	/**
-    	 * Initialization of the test
-    	 */
-    	@Before public void setUp() {
-    		str1 = "Hello World!";
-    		str2 = "Hello World!";
-    		str3 = new String("Hello World!");
-    	} // public void setUp()
-    
-    	/**
-    	 * Clean-up of the test
-    	 */
-    	@After public void tearDown() {
-    		str1 = null;
-    		str2 = null;
-    		str3 = null;
-    	} // public void tearDown()
-    
-    	/**
-    	 * Test case: test same-assertion
-    	 */
-    	@Test public void testAssertSame() {
-    		// All three strings have the same content of "Hello World!"
-    		assertEquals(str1, "Hello World!");
-    		assertEquals(str2, "Hello World!");
-    		assertEquals(str3, "Hello World!");
-    		// str1, str2 and the "Hello World!" are exactly the same object
-    		assertSame(str1, "Hello World!");
-    		assertSame(str1, str2);
-    		// str3 is not the same object as the previous one
-    		assertNotSame("Hello World!", str3);
-    		assertNotSame(str1, str3);
-    	} // public void testAssertSame()
-    	
+
+        private String str1 = null;
+        private String str2 = null;
+        private String str3 = null;
+
+        /**
+         * Initialization of the test
+         */
+        @Before public void setUp() {
+            str1 = "Hello World!";
+            str2 = "Hello World!";
+            str3 = new String("Hello World!");
+        } // public void setUp()
+
+        /**
+         * Clean-up of the test
+         */
+        @After public void tearDown() {
+            str1 = null;
+            str2 = null;
+            str3 = null;
+        } // public void tearDown()
+
+        /**
+         * Test case: test same-assertion
+         */
+        @Test public void testAssertSame() {
+            // All three strings have the same content of "Hello World!"
+            assertEquals(str1, "Hello World!");
+            assertEquals(str2, "Hello World!");
+            assertEquals(str3, "Hello World!");
+            // str1, str2 and the "Hello World!" are exactly the same object
+            assertSame(str1, "Hello World!");
+            assertSame(str1, str2);
+            // str3 is not the same object as the previous one
+            assertNotSame("Hello World!", str3);
+            assertNotSame(str1, str3);
+        } // public void testAssertSame()
+
     } // public class StringTest extends TestCase
     ```
 
@@ -151,64 +151,64 @@ Create test cases
 
     ```java
     package testcase;
-    
+
     import static org.junit.Assert.*;
     import junit.framework.TestCase;
     import org.junit.After;
     import org.junit.Before;
     import org.junit.Test;
     import source.Addition;
-    
+
     /**
      * Testing class - addition
-     * @author	Marco
-     * @version	1.0.0.0
+     * @author    Marco
+     * @version    1.0.0.0
      */
     public class AdditionTest extends TestCase {
-    	/**
-    	 * The class to be tested
-    	 */
-    	private Addition calc = null;
-    
-    	/**
-    	 * Initialization of the test
-    	 */
-    	@Before public void setUp() {
-    		assertNull(calc);
-    		calc = new Addition();
-    	} // public void setUp()
-    
-    	/**
-    	 * Clean-up of the test
-    	 */
-    	@After public void tearDown() {
-    		calc = null;
-    		assertNull(calc);
-    	} // public void tearDown()
-    
-    	/**
-    	 * Test case: test basic addition
-    	 */
-    	@Test public void testAddtion() {
-    		assertNotNull(calc);
-    		double d1 = 0.9, d2 = 0.05, result = 0.95;
-    		// 0.9 + 0.05 = 0.9500000000000001
-    		assertEquals(calc.add(d1, d2), result, calc.EPSILON);
-    		assertNotEquals(calc.add(d1, d2), result);
-    		assertTrue(Math.abs(calc.add(d1, d2) - result) < calc.EPSILON);
-    		assertFalse(calc.add(d1, d2) == result);
-    	} // public void testAddtion()
-    
-    	/**
-    	 * Test case: test addition for array
-    	 */
-    	@Test public void testArrayAddtion() {
-    		assertNotNull(calc);
-    		double[] d1 = {0.9, 0.9, 0.9}, d2 = {0.05, 0.05, 0.05}, result = calc.add(d1, d2);
-    		// 0.9 + 0.05 = 0.9500000000000001
-    		assertArrayEquals(calc.add(d1, d2), result, calc.EPSILON);
-    	} // public void testArrayAddtion()
-    
+        /**
+         * The class to be tested
+         */
+        private Addition calc = null;
+
+        /**
+         * Initialization of the test
+         */
+        @Before public void setUp() {
+            assertNull(calc);
+            calc = new Addition();
+        } // public void setUp()
+
+        /**
+         * Clean-up of the test
+         */
+        @After public void tearDown() {
+            calc = null;
+            assertNull(calc);
+        } // public void tearDown()
+
+        /**
+         * Test case: test basic addition
+         */
+        @Test public void testAddtion() {
+            assertNotNull(calc);
+            double d1 = 0.9, d2 = 0.05, result = 0.95;
+            // 0.9 + 0.05 = 0.9500000000000001
+            assertEquals(calc.add(d1, d2), result, calc.EPSILON);
+            assertNotEquals(calc.add(d1, d2), result);
+            assertTrue(Math.abs(calc.add(d1, d2) - result) < calc.EPSILON);
+            assertFalse(calc.add(d1, d2) == result);
+        } // public void testAddtion()
+
+        /**
+         * Test case: test addition for array
+         */
+        @Test public void testArrayAddtion() {
+            assertNotNull(calc);
+            double[] d1 = {0.9, 0.9, 0.9}, d2 = {0.05, 0.05, 0.05}, result = calc.add(d1, d2);
+            // 0.9 + 0.05 = 0.9500000000000001
+            assertArrayEquals(calc.add(d1, d2), result, calc.EPSILON);
+        } // public void testArrayAddtion()
+
     } // public class AdditionTest extends TestCase
     ```
 
@@ -226,24 +226,24 @@ It is simply as follows:
 
     ```java
     package testsuite;
-    
+
     import junit.framework.Test;
     import junit.framework.TestSuite;
-    
+
     import testcase.AdditionTest;
     import testcase.StringTest;
-    
+
     public class TestSuiteStyle1 {
-    	/**
-    	 * Package several test classes into a suite
-    	 * @return	(Test) The packed test suite
-    	 */
-    	public static Test suite() {
-    		TestSuite suite = new TestSuite("Tests cases of all packages");
-    		suite.addTestSuite(AdditionTest.class);
-    		suite.addTestSuite(StringTest.class);
-    		return suite;
-    	} // public static Test suite()
+        /**
+         * Package several test classes into a suite
+         * @return    (Test) The packed test suite
+         */
+        public static Test suite() {
+            TestSuite suite = new TestSuite("Tests cases of all packages");
+            suite.addTestSuite(AdditionTest.class);
+            suite.addTestSuite(StringTest.class);
+            return suite;
+        } // public static Test suite()
     } // public class TestSuite
     ```
 
@@ -251,19 +251,19 @@ It is simply as follows:
 
     ```java
     package testsuite;
-    
+
     import org.junit.runner.RunWith;
     import org.junit.runners.Suite;
     import testcase.AdditionTest;
     import testcase.StringTest;
-    
+
     @RunWith(Suite.class)
     @Suite.SuiteClasses({
         // Add all testing classes you want here
         AdditionTest.class,
         StringTest.class
     }) // @Suite.SuiteClasses()
-    
+
     public class TestSuiteStyle2 {
         // This class remains completely empty, 
         // being used only as a holder for the above annotations

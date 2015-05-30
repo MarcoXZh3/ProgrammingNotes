@@ -59,28 +59,28 @@ Table of Contents
 
 
 
-[ubuntu01]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Software-List-for-Ubuntu
-[ubuntu02]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Settings-for-Ubuntu
+[ubuntu01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Ubuntu/Software%20List%20for%20Ubuntu.md
+[ubuntu02]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Ubuntu/Settings-for-Ubuntu.md
 [java01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/MyJavaSample.java
 [java02]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/SecureHash.java
 [java03]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/CustomizedEvent
 [java04]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/ExecutableJar
-[java04readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Creating-an-executable-jar-file
+[java04readme]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/Creating-an-executable-jar-file.md
 [java05]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/JarClassLoader
 [java06]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/RunCmd.java
-[java06readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Invoke-system-command
+[java06readme]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/Invoke-system-command.md
 [java07]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/Java/JUnitTestFramework
-[java07readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Testing-with-JUnit
+[java07readme]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Java/Testing-with-JUnit.md
 [js01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/HtmlEscapeSymbols.html
 [js02]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/include_jQuery.js
 [js03]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/GetCssValue
 [js04]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/DomVisibility.js
 [js05]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsClass
-[js05readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Object-oriented-programming
+[js05readme]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/Object-oriented-programming.md
 [js06]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsColor
 [js07]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsTree
 [js08]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/WaitUtilDoneInLoopRecursion
 [js09]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension
-[js09readme]: https://github.com/MarcoXZh/ProgrammingNotes/wiki/Filefox-extension-development
+[js09readme]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/Filefox-extension-development.md
 [python01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Python/BinaryNumberWithOnes.py
 

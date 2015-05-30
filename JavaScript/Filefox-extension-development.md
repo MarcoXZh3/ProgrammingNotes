@@ -262,8 +262,8 @@ Remember a Firefox page is just like a HTML page. So creating such a page is no 
 
     ```javascript
     // overlay.js
-    	window.open('chrome://HelloWorld/content/HelloWorld.xul', 'window.name',
-    				'width=640,height=360,resizable,scrollbars,chrome,centerscreen');
+    window.open('chrome://HelloWorld/content/HelloWorld.xul', 'window.name',
+                'width=640,height=360,resizable,scrollbars,chrome,centerscreen');
     ```
 
 
@@ -292,7 +292,7 @@ Use preferences
     ```javascript
     // HelloWorld.js
     var prefManager = Components.classes["@mozilla.org/preferences-service;1"]
-    							.getService(Components.interfaces.nsIPrefBranch);
+                                .getService(Components.interfaces.nsIPrefBranch);
     var desc = document.getElementById('xul_desc');
     desc.innerHTML = prefManager.getCharPref("extensions.HelloWorld.userName");
     ```
