@@ -2,12 +2,13 @@
 
 2. Run installation script as root user
 
-   Type ```i``` when asked during installation
    ```sh
    sudo -i
-   cd /media/the_user/TeXLive2014
+   cd /media/the_user/TeXLive2015
    ./install-tl
    ```
+
+   Type ```i``` when asked during installation
 
 3. Installation may continues for minutes.
 
@@ -22,10 +23,10 @@
    - Append the following commands to it
 
      ```sh
-     # Texlive 2014
-     PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH; export PATH
-     MANPATH=/usr/local/texlive/2014/texmf/doc/man:$MANPATH; export MANPATH
-     INFOPATH=/usr/local/texlive/2014/texmf/doc/info:$INFOPATH; export INFOPATH
+     # Texlive 2015
+     PATH=$PATH:/usr/local/texlive/2015/bin/x86_64-linux; export PATH
+     MANPATH=$MANPATH:/usr/local/texlive/2015/texmf/doc/man; export MANPATH
+     INFOPATH=$INFOPATH:/usr/local/texlive/2015/texmf/doc/info; export INFOPATH
      ```
 
    - Seupt paths (2)
@@ -37,8 +38,8 @@
    - Append the following commands to it
 
      ```sh
-     # Texlive 2014
-     MANPATH_MAP /usr/local/texlive/2014/bin/x86_64-linux /usr/local/texlive/2014/texmf/doc/man
+     # Texlive 2015
+     MANPATH_MAP /usr/local/texlive/2015/bin/x86_64-linux /usr/local/texlive/2015/texmf/doc/man
      ```
 
    You have to relaunch new terminals to run LaTeX commands.
@@ -61,4 +62,3 @@
      ```sh
      sudo apt-get install texlive-font-utils
      ```
-
