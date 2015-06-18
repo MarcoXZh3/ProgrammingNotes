@@ -45,16 +45,72 @@ Developer Essentials
    sudo apt-get install oracle-java8-installer
    ```
 
-3. Texmaker
-   ```sh
-   sudo add-apt-repository ppa:tsvetko.tsvetkov/trusty-backports
-   sudo apt-get update
-   sudo apt-get install texmaker
-   ```
+3. TexLive
 
-4. TexLive
+   1. Mount the TexLive ISO image with Disk Image Mounter
 
-5. R-base, R-base-dev
+   2. Run installation script as root user
+
+      ```sh
+      sudo -i
+      cd /media/the_user/TeXLive2015
+      ./install-tl
+      ```
+
+      Type ```i``` when asked during installation. The installation may continues for minutes.
+
+   3. Post-installation
+
+      - Set up paths (1)
+
+        ```sh
+        sudo gedit /etc/bash.bashrc
+        ```
+
+      - Append the following commands to it
+
+        ```sh
+        # Texlive 2015
+        PATH=$PATH:/usr/local/texlive/2015/bin/x86_64-linux; export PATH
+        MANPATH=$MANPATH:/usr/local/texlive/2015/texmf/doc/man; export MANPATH
+        INFOPATH=$INFOPATH:/usr/local/texlive/2015/texmf/doc/info; export INFOPATH
+        ```
+
+      - Seupt paths (2)
+
+        ```sh
+        sudo gedit /etc/manpath.config
+        ```
+
+      - Append the following commands to it
+
+        ```sh
+        # Texlive 2015
+        MANPATH_MAP /usr/local/texlive/2015/bin/x86_64-linux /usr/local/texlive/2015/texmf/doc/man
+        ```
+
+        You have to relaunch new terminals to run LaTeX commands.
+
+   4. Set the paper size to ```letter```
+
+      ```sh
+      sudo -i               # You must login as root user for paper setting
+      tlmgr paper letter
+      ```
+
+   5. Test your installation
+
+      ```sh
+      latex small2e
+      ```
+
+   6. If you cannot import EPS files
+
+      ```sh
+      sudo apt-get install texlive-font-utils
+      ```
+
+4. R-base, R-base-dev
    ```sh
    sudo add-apt-repository "deb http://cran.rstudio.com/bin/linux/ubuntu $(lsb_release -cs)/"
    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
@@ -62,7 +118,7 @@ Developer Essentials
    sudo apt-get install r-base r-base-dev
    ```
 
-6. RStudio: run the ```deb``` package; in the RStudio console, add necessary packages:
+5. RStudio: run the ```deb``` package; in the RStudio console, add necessary packages:
    ```sh
    install.packages('e1071', dependencies=TRUE)             # Naive Bayes Classifier
    install.packages('irr', dependencies=TRUE)               # Inter-Rater Reliability
@@ -71,7 +127,7 @@ Developer Essentials
    install.packages('fontcm', dependencies=TRUE)            # Computer Modern font
    ```
 
-7. Eclipse
+6. Eclipse
 
    + Download Eclipse IDE package
 
@@ -101,7 +157,7 @@ Developer Essentials
 
    + Now the Eclipse IDE can be found from the Unity Dash
 
-8. Build Essentials
+7. Build Essentials
    ```sh
    sudo apt-get install build-essential autoconf libtool pkg-config python-opengl python-imaging \
                          python-pyrex python-pyside.qtopengl idle-python2.7 qt4-dev-tools \
@@ -109,9 +165,9 @@ Developer Essentials
                          libqt4-network libqt4-dbus python-qt4 python-qt4-gl libgle3 python-dev
    ```
 
-9. Malicious
+8. Malicious
    ```sh
-   sudo apt-get install git python-pip fonts-cmu
+   sudo apt-get install python-pip fonts-cmu
    sudo pip install wheel natsort sqlite sqlite3 pillow
    cd pylzma-0.4.6/     # Download pylzma first, currently version 0.4.6
    sudo python setup.py build
