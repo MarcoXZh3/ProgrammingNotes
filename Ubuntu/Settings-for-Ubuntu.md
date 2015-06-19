@@ -83,9 +83,13 @@ dconf write /org/gnome/gedit/preferences/encodings/auto-detected \
 Add SSH key to System
 =====================
 
-https://confluence.atlassian.com/pages/viewpage.action?pageId=270827678
+1. Set up SSH for Git on Windows. Do not copy codes in this page using Chrome or Opera
 
-https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git
+   https://confluence.atlassian.com/pages/viewpage.action?pageId=270827678
+
+2. Set up SSH for Git and Mercurial on Mac OSX/Linux
+
+   https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git
 
 
 MHTML Support of Google Chrome/Chromium
