@@ -104,10 +104,10 @@ Developer Essentials
       latex small2e
       ```
 
-   6. If you cannot import EPS files
+   6. Extra useful packages
 
       ```sh
-      sudo apt-get install texlive-font-utils
+      sudo apt-get install texlive-latex-extra texlive-font-utils
       ```
 
 4. R-base, R-base-dev
