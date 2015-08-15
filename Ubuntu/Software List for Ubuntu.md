@@ -3,11 +3,11 @@ Ubuntu Software Center
 
 1. 7zip
 
-2. Adobe Flash Player && Pepper Flash Plugin
+2. Chromium
 
-3. Chinese Calendar
+3. Adobe Flash Player && Pepper Flash Plugin
 
-4. Chromium
+4. Chinese Calendar
 
 5. Firefox Addons: ChmFox, UnMHT, Firebug*
 
@@ -159,4 +159,11 @@ Developer Essentials
    library(extrafont)
    font_import()
    ```
+
+9. SSH
+
+10. nodejs, jpm
+    ```sh
+    sudo npm install jpm -g
+    ```
 
