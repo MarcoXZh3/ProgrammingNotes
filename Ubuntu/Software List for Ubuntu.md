@@ -162,7 +162,7 @@ Developer Essentials
 
 9. SSH
 
-10. nodejs, jpm
+10. nodejs, npm, and jpm
     ```sh
     sudo npm install jpm -g
     ```
