@@ -18,6 +18,7 @@ This is to move Windows before Ubuntu.
 
    ```sh
     mv 30_os-prober 08_os-prober
+    mv 30_uefi-firmware 08_uefi-firmware
     ls -l
    ```
 
@@ -56,21 +57,6 @@ The default tooltip background color is black while default foreground color is 
 3. Save the settrings. Sometimes you have to re-login to make if effective
 
 
-Change Application Icons
-========================
-
-
-1. Open applications folder in explorer with super user priviledge
-
-   ```sh
-   sudo nautilus /usr/share/applications
-   ```
-
-2. Right click the target application, choose ```Properties```.
-
-3. In the properties dialog, click the icon image and choose your favorite one.
-
-
 GEdit Chinese Garbled
 =====================
 
@@ -85,11 +71,11 @@ Add SSH key to System
 
 1. Set up SSH for Git on Windows. Do not copy codes in this page using Chrome or Opera
 
-   https://confluence.atlassian.com/pages/viewpage.action?pageId=270827678
+   https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git
 
 2. Set up SSH for Git and Mercurial on Mac OSX/Linux
 
-   https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git
+   https://confluence.atlassian.com/pages/viewpage.action?pageId=270827678
 
 
 MHTML Support of Google Chrome/Chromium
@@ -98,25 +84,3 @@ MHTML Support of Google Chrome/Chromium
 Open the ```chrome://flags``` page, and enable the ```Save Page as MHTML``` option.
 
 
-Setup Thunderbird (UAlberta)
-============================
-
-Incoming:
-
-|  Property               |  Value           |
-| :---------------------- | :--------------- |
-|  Account Type           |  IMAP            |
-|  Incoming Mail Server   |  imap.gmail.com  |
-|  Port                   |  993             |
-|  Connection security    |  SSL/TLS         |
-|  Authentication method  |  Autodetect      |
-
-Outgoing:
-
-|  Property               |  Value                                  |
-| :---------------------- | :-------------------------------------- |
-|  Account Type           |  SMTP                                   |
-|  Incoming Mail Server   |  smtp.gmail.com                         |
-|  Port                   |  587                                    |
-|  Connection security    |  Autodetect (Will finally be STARTTLS)  |
-|  Authentication method  |  Autodetect                             |
