@@ -69,6 +69,8 @@ dconf write /org/gnome/gedit/preferences/encodings/auto-detected \
 Add SSH key to System
 =====================
 
+**Note that git 2.5.0 and later use ```.bash_profile``` as default config file instead of ```.bashrc```**
+
 1. Set up SSH for Git on Windows. Do not copy codes in this page using Chrome or Opera
 
    https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git
