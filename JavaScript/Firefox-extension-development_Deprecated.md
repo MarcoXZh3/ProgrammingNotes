@@ -1,5 +1,5 @@
-Set up Firefox environment
-==========================
+Set up Firefox environment (Deprecated)
+=======================================
 
 1. Create a development user profile.
 
@@ -317,4 +317,4 @@ Find all source codes [here] [1].
 
 
 
-[1]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension
+[1]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension_Deprecated
