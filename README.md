@@ -49,7 +49,8 @@ Table of Contents
 
     - Wait-util-done procedure in loop recursion -- [```WaitUtilDoneInLoopRecursion```] [js08]
 
-    - Filefox extension development -- [```FilefoxExtension```] [js09] Readme document [here] [js09readme]
+    - Firefox extension development (Deprecated) -- [```FirefoxExtension_Deprecated```] [js09]
+      Readme document [here] [js09readme]
 
 
   - **Python**
@@ -80,7 +81,7 @@ Table of Contents
 [js06]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsColor
 [js07]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsTree
 [js08]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/WaitUtilDoneInLoopRecursion
-[js09]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension
-[js09readme]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/Filefox-extension-development.md
+[js09]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension_Deprecated
+[js09readme]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/Firefox-extension-development.md
 [python01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Python/BinaryNumberWithOnes.py
 
