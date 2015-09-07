@@ -36,6 +36,11 @@ Developer Essentials
    ```
 
 2. Git
+   ```sh
+   sudo add-apt-repository ppa:git-core/ppa
+   sudo apt-get update
+   sudo apt-get install git
+   ```
 
 3. python-pip
    ```sh
@@ -164,6 +169,12 @@ Developer Essentials
 
 10. nodejs, npm, and jpm
     ```sh
+    # Note the new setup script name for Node.js v0.12
+    curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+    # Then install with:
+    sudo apt-get install -y nodejs
+
+    sudo npm install npm -g
     sudo npm install jpm -g
     ```
 
