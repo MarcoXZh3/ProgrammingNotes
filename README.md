@@ -82,6 +82,6 @@ Table of Contents
 [js07]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/JsTree
 [js08]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/WaitUtilDoneInLoopRecursion
 [js09]: https://github.com/MarcoXZh/ProgrammingNotes/tree/master/JavaScript/FirefoxExtension_Deprecated
-[js09readme]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/Firefox-extension-development.md
+[js09readme]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/JavaScript/Firefox-extension-development_Deprecated.md
 [python01]: https://github.com/MarcoXZh/ProgrammingNotes/blob/master/Python/BinaryNumberWithOnes.py
 
