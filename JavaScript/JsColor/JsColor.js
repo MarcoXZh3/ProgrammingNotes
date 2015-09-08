@@ -153,7 +153,13 @@ function JsColor(para1, para2, para3, para4) {
         r = Math.floor(rgb / 256);
       } else if (typeof para1 == "string" && para1.length != 0 && !para2 && ! para3 && !para4) {
         var para = para1.replace(/\s+/g, "").toUpperCase();
-        if (para.match(/RGB\(\d{1,3},\d{1,3},\d{1,3}\)/) != null) {
+        if (para == "TRANSPARENT") {
+          this.setRed(0);
+          this.setGreen(0);
+          this.setBlue(0);
+          hasAlpha = true;
+          this.setAlpha(0.0);
+        } else if (para.match(/RGB\(\d{1,3},\d{1,3},\d{1,3}\)/) != null) {
           var rgb = para.match(/\d+/g);
           this.setRed(parseInt(rgb[0]));
           this.setGreen(parseInt(rgb[1]));
