@@ -71,13 +71,7 @@ Add SSH key to System
 
 **Note that git 2.5.0 and later use ```.bash_profile``` as default config file instead of ```.bashrc```**
 
-1. Set up SSH for Git on Windows. Do not copy codes in this page using Chrome or Opera
-
    https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git
-
-2. Set up SSH for Git and Mercurial on Mac OSX/Linux
-
-   https://confluence.atlassian.com/pages/viewpage.action?pageId=270827678
 
 
 MHTML Support of Google Chrome/Chromium
